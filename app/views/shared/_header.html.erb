@@ -5,9 +5,15 @@
     </div>
     <div class="menu">
       <ul>
-	<li class="current"><a class="radius" href="">Портфолио</a></li>
-	<li><a class="radius " href="">О Студии</a></li>
-	<li><a class="radius" href="">Новости</a></li>
+	<li class="current">
+	  <%= link_to t(:portfolio), root_path, class: 'radius' %>
+	</li>
+	<li>
+	  <%= link_to t(:about_studio), persons_path, class: 'radius' %>
+	</li>
+	<li>
+	  <%= link_to t(:news), news_path, class: 'radius' %>
+	</li>
       </ul>
     </div>
     <div class="header-social radius">
