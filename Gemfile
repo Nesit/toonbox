@@ -10,6 +10,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'globalize3'
 
 group :production do
   gem 'pg'
