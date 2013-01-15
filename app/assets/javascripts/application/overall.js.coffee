@@ -2,14 +2,10 @@ $ ->
   console.log "Loaded overall.js.coffee"
 
   # Change user locale
-  # $('#change_locale').bind 'click', ->
-  #   new_locale = switch $(@).text()
-  #                  when 'en' then 'ru'
-  #                  when 'ru' then 'en'
-  #                  else 'en'
-
-  #   $.cookie('locale', new_locale, { expires: 365 })
-  #   window.location.reload()
+  $('div.lang a').bind 'click', ->
+    new_locale = $(@).data('language')
+    $.cookie('locale', new_locale, { expires: 365 })
+    window.location.reload()
 
 
   $(".award-icon-item img").live 'mouseenter', ->
