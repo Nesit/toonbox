@@ -16,3 +16,4 @@
 /.rbenv-version
 /.gems
 /config/database.yml
+/public/system

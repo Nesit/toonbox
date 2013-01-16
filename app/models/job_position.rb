@@ -1,3 +1,3 @@
 class JobPosition < ActiveRecord::Base
-  # attr_accessible :title, :body
+  # translates :title, :description
 end

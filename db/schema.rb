@@ -11,11 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115131304) do
+ActiveRecord::Schema.define(:version => 20130116083640) do
 
   create_table "job_positions", :force => true do |t|
+    t.boolean  "open"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "movie_images", :force => true do |t|
+    t.integer  "movie_id",           :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "default"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "movie_translations", :force => true do |t|

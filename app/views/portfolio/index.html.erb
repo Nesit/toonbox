@@ -4,99 +4,53 @@
   </div>
 </div>
 
-<div class="last-series-list">
-  <div class="series-item radius">
-    <div class="social-bookmark top-radius">
-      <a href=""><span class="fb-mark"></span></a>
-      <a href=""><span class="vk-mark"></span></a>
-    </div>
-    <div class="series-thumb">
-      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
-      <div class="preview"><a href=""><img style="width: 272px;" src="sample/samp_1.jpg" alt="" /></a></div>
-      <div class="clear"></div>
-    </div>
-    <div class="series-info">
-      <div class="series-title">Реламные ролики</div>
+<div id="center">
+  <div class="wrapper">
+    <div class="content-block radius-10">
+
+      <div class="last-series-list">
+
+	<% @movies.each do |movie| %>
+	  <div class="series-item radius">
+	    <div class="social-bookmark top-radius">
+	      <a href="http://www.facebook.com/sharer.php?u=<%= movie_url(movie) %>" target="_blank"><span class="fb-mark"></span></a>
+	      <a href="http://vkontakte.ru/share.php?url=<%= movie_url(movie) %>" target="_blank"><span class="vk-mark"></span></a>
+	    </div>
+	    <div class="series-thumb">
+	      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
+	      <div class="preview">
+		<%= link_to image_tag(movie.default_image, style: "width: 266px;"), movie_path(movie) %>
+	      </div>
+	      <div class="clear"></div>
+	    </div>
+	    <div class="series-info">
+	      <div class="series-title"><%= movie.title %></div>
+	    </div>
+	  </div>
+	<% end %>
+
+	<div class="series-item radius">
+	  <div class="social-bookmark top-radius">
+	    <a href=""><span class="fb-mark"></span></a>
+	    <a href=""><span class="vk-mark"></span></a>
+	  </div>
+	  <div class="new-icon-item"><img src="/assets/icon-new.png" data-title="Новый сериал" data-resume="" alt="" /></div>
+	  <div class="award-icon-item"><img src="/assets/icon-award.png" data-title="Суздаль 2010" data-resume="За лучшую работу в области прикладной анимации" alt="" /></div>
+
+	  <div class="series-thumb">
+	    <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
+	    <div class="preview"><a href=""><img style="width: 266px;" src="sample/samp_1.jpg" alt="" /></a></div>
+	    <div class="clear"></div>
+	  </div>
+	  <div class="series-info">
+	    <div class="series-title">Реламные ролики</div>
+	  </div>
+	</div>
+
+	<div class="clear"></div>
+
+      </div>
+
     </div>
   </div>
-
-  <div class="series-item radius">
-    <div class="social-bookmark top-radius">
-      <a href=""><span class="fb-mark"></span></a>
-      <a href=""><span class="vk-mark"></span></a>
-    </div>
-    <div class="series-thumb">
-      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
-      <div class="preview"><a href=""><img style="width: 272px;" src="sample/samp_4.jpg" alt="" /></a></div>
-      <div class="clear"></div>
-    </div>
-    <div class="series-info">
-      <div class="series-title">Куми-Куми</div>
-    </div>
-  </div>
-
-  <div class="series-item radius">
-    <div class="social-bookmark top-radius">
-      <a href=""><span class="fb-mark"></span></a>
-      <a href=""><span class="vk-mark"></span></a>
-    </div>
-    <div class="series-thumb">
-      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
-      <div class="preview"><a href=""><img style="width: 272px;" src="sample/samp_1.jpg" alt="" /></a></div>
-      <div class="clear"></div>
-    </div>
-    <div class="series-info">
-      <div class="series-title">Реламные ролики</div>
-    </div>
-  </div>
-
-  <div class="series-item radius">
-    <div class="social-bookmark top-radius">
-      <a href=""><span class="fb-mark"></span></a>
-      <a href=""><span class="vk-mark"></span></a>
-    </div>
-
-    <div class="new-icon-item"><img src="/assets/icon-new.png" data-title="Новый сериал" data-resume="" alt="" /></div>
-    <div class="award-icon-item"><img src="/assets/icon-award.png" data-title="Суздаль 2010" data-resume="За лучшую работу в области прикладной анимации" alt="" /></div>
-
-    <div class="series-thumb">
-      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
-      <div class="preview"><a href=""><img style="width: 272px;" src="sample/samp_1.jpg" alt="" /></a></div>
-      <div class="clear"></div>
-    </div>
-    <div class="series-info">
-      <div class="series-title">Реламные ролики</div>
-    </div>
-  </div>
-
-  <div class="series-item radius">
-    <div class="social-bookmark top-radius">
-      <a href=""><span class="fb-mark"></span></a>
-      <a href=""><span class="vk-mark"></span></a>
-    </div>
-    <div class="series-thumb">
-      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
-      <div class="preview"><a href=""><img style="width: 272px;" src="sample/samp_4.jpg" alt="" /></a></div>
-      <div class="clear"></div>
-    </div>
-    <div class="series-info">
-      <div class="series-title">Куми-Куми</div>
-    </div>
-  </div>
-
-  <div class="series-item radius">
-    <div class="social-bookmark top-radius">
-      <a href=""><span class="fb-mark"></span></a>
-      <a href=""><span class="vk-mark"></span></a>
-    </div>
-    <div class="series-thumb">
-      <div class="icon-mask radius"><a class="icon-series" href=""><span>49</span> серий</a></div>
-      <div class="preview"><a href=""><img style="width: 272px;" src="sample/samp_4.jpg" alt="" /></a></div>
-      <div class="clear"></div>
-    </div>
-    <div class="series-info">
-      <div class="series-title">Куми-Куми</div>
-    </div>
-  </div>
-  <div class="clear"></div>
 </div>

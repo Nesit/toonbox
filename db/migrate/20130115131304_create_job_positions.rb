@@ -4,8 +4,6 @@ class CreateJobPositions < ActiveRecord::Migration
       t.boolean :open
       t.timestamps
     end
-    Movie.create_translation_table! title: :string,
-                                    short_description: :text,
-                                    description: :text
+    # Movie.create_translation_table! title: :string, description: :text
   end
 end

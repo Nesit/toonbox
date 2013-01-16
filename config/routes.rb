@@ -8,6 +8,7 @@ Toonbox::Application.routes.draw do
   end
 
   resources :news, only: [:index, :show]
+  resources :movies, only: [:show]
 
   root :to => 'portfolio#index'
 end

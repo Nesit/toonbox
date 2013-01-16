@@ -11,9 +11,14 @@ end
 
 gem 'jquery-rails'
 gem 'globalize3'
+gem 'paperclip'
 
 group :production do
   gem 'pg'
+end
+
+group :development, :test, :staging do
+  gem 'faker'
 end
 
 group :development do
