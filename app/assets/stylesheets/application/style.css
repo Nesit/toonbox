@@ -89,6 +89,7 @@ h1 {
 }
 #header {
     padding : 30px 0;
+    background : #fff;
 }
 #header .logo {
     float : left;
@@ -220,7 +221,7 @@ h1 {
     padding-bottom : 10px;
 }
 .series-item {
-    width : 286px;
+    width : 280px;
     height : 225px;
     border : #e7e7e7 solid 1px;
     display : inline-block;
@@ -231,14 +232,14 @@ h1 {
 .series-item .award-icon-item {
     position : absolute;
     z-index : 10;
-    top : -5px;
+    top : -10px;
     top : 90px;
     width : 58px;
 }
 .series-item .new-icon-item {
     position : absolute;
     z-index : 10;
-    top : -5px;
+    top : -10px;
     top : 20px;
     width : 58px;
 }
@@ -817,26 +818,33 @@ h1 {
     text-align : center;
     padding-top : 20px;
 }
+.page-bg {
+    position : fixed;
+    z-index : -1;
+    top : 0;
+    height : 100%;
+    width : 100%;
+}
 .bg-about {
-    background : url(/assets/bg-about.jpg) center top no-repeat;
+    background : url(/assets/bg-about.jpg) center center no-repeat;
 }
 .bg-vacansies {
-    background : url(/assets/bg-vacansies.jpg) center top no-repeat;
+    background : url(/assets/bg-vacansies.jpg) center center no-repeat;
 }
 .bg-news {
-    background : url(/assets/bg-news.jpg) center top no-repeat;
+    background : url(/assets/bg-news.jpg) center center no-repeat;
 }
 .bg-partners {
-    background : url(/assets/bg-partners.jpg) center top no-repeat;
+    background : url(/assets/bg-partners.jpg) center center no-repeat;
 }
 .bg-reward {
-    background : url(/assets/bg-reward.jpg) center top no-repeat;
+    background : url(/assets/bg-reward.jpg) center center no-repeat;
 }
 .bg-contact {
-    background : url(/assets/bg-contact.jpg) center top no-repeat;
+    background : url(/assets/bg-contact.jpg) center center no-repeat;
 }
 .bg-feedback {
-    background : url(/assets/bg-feedback.jpg) center top no-repeat;
+    background : url(/assets/bg-feedback.jpg) center center no-repeat;
 }
 #footer {
     background : #338fd2;
