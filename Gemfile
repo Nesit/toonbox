@@ -15,6 +15,7 @@ gem 'paperclip'
 
 group :production do
   gem 'pg'
+  gem 'unicorn'
 end
 
 group :development, :test, :staging do
