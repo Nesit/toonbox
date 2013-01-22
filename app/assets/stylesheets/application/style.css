@@ -3,10 +3,8 @@
     src : url("/assets/calibri.eot");
 }
 @font-face {
-    {
-	font-family : Calibri;
-	src : url("/assets/calibri.ttf");
-    }
+    font-family : Calibri;
+    src : url("/assets/calibri.ttf");
 }
 body {
     font-family : Verdana, Helvetica, sans-serif;
