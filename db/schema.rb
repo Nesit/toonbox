@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130123090346) do
 
   create_table "movie_episodes", :force => true do |t|
     t.integer  "movie_id",   :null => false
+    t.text     "video_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

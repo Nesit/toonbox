@@ -1,4 +1,4 @@
-ActiveAdmin.register Movie do
+ActiveAdmin.register MovieEpisode do
   form partial: 'form'
 
   controller do
@@ -8,10 +8,10 @@ ActiveAdmin.register Movie do
     end
 
     def add_image
-      movie = Movie.find(params[:id])
+      movie_episode = MovieEpisode.find(params[:id])
       @images = []
       params[:images].each do |image|
-	@images << movie.images.create(image: image)
+        @images << movie_episode.images.create(image: image)
       end
       render 'admin/shared/movie_images/add_image', layout: false
     end
@@ -22,5 +22,4 @@ ActiveAdmin.register Movie do
     end
 
   end
-
 end

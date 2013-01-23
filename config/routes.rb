@@ -6,6 +6,11 @@ Toonbox::Application.routes.draw do
       delete :destroy_image, on: :collection
       put :image_as_default
     end
+    resources :movie_episodes do
+      post :add_image, on: :member
+      delete :destroy_image, on: :collection
+      put :image_as_default
+    end
   end
 
   ActiveAdmin.routes(self)

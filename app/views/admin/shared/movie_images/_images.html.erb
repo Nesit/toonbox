@@ -1,0 +1,11 @@
+<div class="images">
+  <fieldset>
+    <% f.object.images.each do |image| %>
+      <%= render 'admin/shared/movie_images/image', :image => image %>
+    <% end %>
+  </fieldset>
+</div>
+
+<%= f.semantic_fields_for :image do |image| %>
+  <%= image.input :image, :as => :file, :input_html => {:id => 'add_image', :multiple => true} %>
+<% end %>

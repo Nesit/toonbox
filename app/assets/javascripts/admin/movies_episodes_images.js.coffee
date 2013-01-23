@@ -1,13 +1,13 @@
-movie_id =() ->
-  regex = /movies\/(\d+)/
-  regex.exec(window.location.href)[1]
+object_attr =() ->
+  regex = /(\w+)\/(\d+)/
+  [regex.exec(window.location.href)[1], regex.exec(window.location.href)[2]]
 
 add_images =() ->
   data = new FormData()
   jQuery.each $("#add_image")[0].files, (i, file) ->
     data.append 'images[]', file
 
-  $.ajax "/admin/movies/#{movie_id()}/add_image",
+  $.ajax "#{window.url_part}/add_image",
     type: 'POST'
     data: data
     cache: false
@@ -18,17 +18,19 @@ add_images =() ->
       $("#add_image").val('')
 
 set_image_as_default =(id) ->
-  $.ajax "/admin/movies/#{movie_id()}/image_as_default",
+  $.ajax "#{window.url_part}/image_as_default",
     type: 'PUT'
     data: { image_id: id}
   
 $ ->
-  return if $("body.admin_movies").length == 0
-  console.log "Loaded admin/movies.js.coffee"
+  return if $("body.edit.admin_movies, body.edit.admin_movie_episodes").length == 0
+  console.log "Loaded admin/movies_episodes_images.js.coffee"
 
-  $("#add_image_button").bind 'click', () ->
-    add_images()
-    false
+  window.url_part = "/admin/#{object_attr()[0]}/#{object_attr()[1]}"
+
+  $('input#add_image').bind 'change', () ->
+    if $(@).val()
+      add_images()
 
   $("input.default_image").live 'click', () ->
     set_image_as_default($(@).parents("div.image").data("image-id"))
