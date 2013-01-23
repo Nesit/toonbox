@@ -1,4 +1,8 @@
 Toonbox::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   scope '/about_us' do
     resources :jobs, only: [:index, :show]
     resources :persons, only: [:index, :show]

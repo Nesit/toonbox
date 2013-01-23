@@ -12,6 +12,10 @@ end
 gem 'jquery-rails'
 gem 'globalize3'
 gem 'paperclip'
+gem 'activeadmin'
+gem 'active_admin_editor', github: 'ezotrank/active_admin_editor', ref: 'c67aa46b250fe2f7821d89da5a85187a8a514aa0'
+gem 'russian'
+gem 'devise-russian'
 
 group :production do
   gem 'pg'
