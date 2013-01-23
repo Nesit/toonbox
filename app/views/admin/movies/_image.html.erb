@@ -1,0 +1,6 @@
+<div class="image" data-image-id="<%= image.id %>">
+  <%= image_tag image.image.url %>
+  <%= label_tag 'Сделать как основную' %>
+  <%= radio_button_tag 'default', true, image.default?, class: :default_image %>
+  <%= link_to "Удалить фотографию", destroy_image_admin_movies_path(id: image.id), method: :delete, remote: true, onclick: '$(this).parent().remove();' %>
+</div>

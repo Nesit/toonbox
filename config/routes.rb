@@ -1,4 +1,13 @@
 Toonbox::Application.routes.draw do
+  # Admin panel
+  namespace :admin do
+    resources :movies do
+      post :add_image, on: :member
+      delete :destroy_image, on: :collection
+      put :image_as_default
+    end
+  end
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

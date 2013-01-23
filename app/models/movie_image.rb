@@ -7,7 +7,26 @@ class MovieImage < ActiveRecord::Base
                     default_style: :thumb,
                     default_url: '/assets/no_image.gif'
 
-  attr_accessible :movie_id, :movie, :default
+  attr_accessible :movie_id, :movie, :default, :image
 
   scope :defaults, where(default: true)
+
+  before_save :check_default
+
+  def default!
+    update_attribute(:default, true)
+  end
+
+  def not_default!
+    update_attribute(:default, false)
+  end
+
+  protected
+
+  def check_default
+    if self.default_changed? && self.default == true
+      self.relation.images.defaults.each {|s| s.not_default!}
+    end
+  end
+
 end

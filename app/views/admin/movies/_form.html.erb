@@ -29,6 +29,24 @@
     <% end %>
   </div>
 
+  <% unless f.object.new_record? %>
+    <%= f.inputs :images do %>
+      <div class="images">
+	<fieldset>
+          <% f.object.images.each do |image| %>
+            <%= render 'image', :image => image %>
+          <% end %>
+	</fieldset>
+      </div>
+
+      <%= f.semantic_fields_for :image do |image| %>
+        <%= image.input :image, :as => :file, :input_html => {:id => 'add_image', :multiple => true} %>
+        <%= image.action :submit, :button_html => { :id => 'add_image_button', :value => 'Добавить фотографию' }  %>
+      <% end %>
+
+    <% end %>
+  <% end %>
+
   <%= f.actions %>
 
 <% end %>
