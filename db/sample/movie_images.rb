@@ -10,4 +10,4 @@ MovieImage.all.each do |movie_image|
   movie_image.update_attribute(:image, sample_image)
 end
 
-Movie.all.each {|movie| movie.movie_images.sample.update_attribute(:default, true) if movie.movie_images.present? }
+Movie.all.each {|movie| movie.images.sample.update_attribute(:default, true) if movie.images.present? }

@@ -1,6 +1,7 @@
 <% (1..30).to_a.sample(15).each do |movie_id| %>
 <% rand(1..3).times.each do |i| %>
 movie_image_<%= movie_id %>_<%= i %>:
-  movie_id: <%= movie_id %>
+  relation_id: <%= movie_id %>
+  relation_type: 'Movie'
 <% end %>
 <% end %>

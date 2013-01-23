@@ -1,13 +1,17 @@
 class Movie < ActiveRecord::Base
-  translates :title, :description
+  include TranslationStuff
 
-  has_many :movie_images, dependent: :destroy
+  translates :title, :description, fallbacks_for_empty_translations: true
+  accepts_nested_attributes_for :translations
+
+  has_many :images, as: :relation, class_name: 'MovieImage', dependent: :destroy
+  has_many :episodes, class_name: 'MovieEpisode'
 
   attr_accessible :title, :description
 
   validates :title, :description, presence: true
 
   def default_image
-    (movie_images.present? && movie_images.defaults.first) ? movie_images.defaults.first.image.url : '/assets/no_image.gif'
+    (images.present? && images.defaults.first) ? images.defaults.first.image.url : '/assets/no_image.gif'
   end
 end
