@@ -23,7 +23,11 @@
 	      <div class="award-icon-item"><img src="/assets/icon-award.png" data-resume="<%== movie.awarded_text %>" alt="" /></div>
 	    <% end %>
 	    <div class="series-thumb">
-	      <div class="icon-mask radius"><a class="icon-series" href=""><span><%= movie.episodes.count %></span> серий</a></div>
+	      <div class="icon-mask radius">
+		<%= link_to movie_path(movie), class: "icon-series" do %>
+		  <span><%= movie.episodes.count %></span> <%= t(:episode, count: movie.episodes.count) %>
+		<% end %>
+	      </div>
 	      <div class="preview">
 		<%= link_to image_tag(movie.default_image, style: "width: 266px;"), movie_path(movie) %>
 	      </div>

@@ -1,0 +1,55 @@
+<div id="breadcrumbs">
+  <div class="wrapper">
+    <%= link_to "Портфолио", root_path %>
+    <span class="drop"></span>
+    <%= link_to @movie.title, movie_path(@movie) %>
+  </div>
+</div>
+
+<div class="series-list">
+
+  <% @movie.episodes.each do |episode| %>
+    <div class="series-item radius">
+      <div class="social-bookmark top-radius">
+	<a href="http://www.facebook.com/sharer.php?u=<%= movie_episode_url(@movie, episode) %>" target="_blank">
+	  <span class="fb-mark"></span>
+	</a>
+	<a href="http://vkontakte.ru/share.php?url=<%= movie_episode_url(@movie, episode) %>" target="_blank">
+	  <span class="vk-mark"></span>
+	</a>
+      </div>
+      <div class="series-thumb">
+	<div class="icon-mask radius">
+	  <% if episode.video_url %>
+	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
+	  <% elsif episode.images.present? %>
+	    <a rel="prettyPhoto[gallery3]" class="icon-image" href="<%= episode.default_image %>">Смотреть<br />картинки</a>
+	  <% else %>
+	    <span>nothing</span>
+	  <% end %>
+	</div>
+
+	<div class="preview">
+	  <% if episode.video_url %>
+	    <a href=""><%= image_tag episode.default_image, style: 'width: 272px;' %></a>
+	  <% elsif episode.images.present? %>
+	    <a rel="prettyPhoto[gallery3]" href="<%= episode.default_image %>">
+	      <% episode.images.each do |image| %>
+		<% image_tag image.image.path, style: "width: 272px;" %>
+	      <% end %>
+	    </a>
+	  <% else %>
+	    <span>nothing</span>
+	  <% end %>
+	</div>
+	<div class="clear"></div>
+      </div>
+      <div class="series-info">
+	<div class="series-title"><%= episode.title %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="clear"></div>
+
+</div>

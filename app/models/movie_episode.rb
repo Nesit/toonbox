@@ -10,4 +10,12 @@ class MovieEpisode < ActiveRecord::Base
   attr_accessible :title, :description, :video_url, :movie_id
 
   validates :title, :description, presence: true
+
+  def default_image
+    if images.present?
+      images.defaults.first ? images.defaults.first.image.url : images.sample.image.url
+    else
+      '/assets/no_image.gif'
+    end
+  end
 end

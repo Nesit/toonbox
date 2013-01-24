@@ -7,3 +7,9 @@ ru:
   contacts: Контакты
   feedbacks: Отзывы
   job_positions: Вакансии
+  episode:
+    zero: Еще пока нет серий
+    one: серия
+    few: серии
+    many: серий
+    other: серий
