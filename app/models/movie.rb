@@ -1,13 +1,13 @@
 class Movie < ActiveRecord::Base
   include TranslationStuff
 
-  translates :title, :description, fallbacks_for_empty_translations: true
+  translates :title, :description, :awarded_text, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
 
   has_many :images, as: :relation, class_name: 'MovieImage', dependent: :destroy
   has_many :episodes, class_name: 'MovieEpisode'
 
-  attr_accessible :title, :description
+  attr_accessible :title, :description, :new_movie, :awarded, :awarded_text
 
   validates :title, :description, presence: true
 

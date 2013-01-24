@@ -13,6 +13,11 @@
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %> 
 	<%= f.input :description %>
+	<%= f.input :new_movie, as: :select, 
+                                collection: [['Да', true],['Нет', false]] %>
+	<%= f.input :awarded,   as: :select, 
+                                collection: [['Да', true],['Нет', false]] %>
+	<%= f.input :awarded_text %>
       <% end %>
     </div>
 
@@ -22,6 +27,7 @@
 	<%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
 	  <%= lf.input :title %>
           <%= lf.input :description %>
+	  <%= lf.input :awarded_text %>
           <%= lf.input :locale, :as => :hidden %>
 	<% end %>
       </div>

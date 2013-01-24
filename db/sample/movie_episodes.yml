@@ -1,0 +1,9 @@
+<% index = 1 %>
+<% (1..30).each do |movie_id| %>
+<% rand(1..3).times.each do |i| %>
+movie_episode_<%= movie_id %>_<%= i %>:
+  id: <%= index %>
+  movie_id: <%= movie_id %>
+<% index += 1 %>
+<% end %>
+<% end %>

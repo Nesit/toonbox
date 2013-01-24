@@ -13,7 +13,8 @@
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %> 
         <%= f.input :description %>
-	<%= f.input :movie, include_blank: false, selected: params[:movie_id] %>
+	<%= f.input :movie, include_blank: false, selected: resource.movie.try(:id) || params[:movie_id] %>
+	<%= f.input :video_url %>
       <% end %>
     </div>
 

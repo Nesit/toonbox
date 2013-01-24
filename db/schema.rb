@@ -88,8 +88,9 @@ ActiveRecord::Schema.define(:version => 20130123090346) do
     t.string   "locale"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "awarded_text"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "movie_translations", ["locale"], :name => "index_movie_translations_on_locale"
@@ -98,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20130123090346) do
   create_table "movies", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "new_movie"
+    t.boolean  "awarded"
   end
 
 end

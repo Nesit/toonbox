@@ -1,4 +1,6 @@
 <% (1..30).each do |i| %>
 movie_<%= i %>:
   id: <%= i %>
+  new_movie: <%= rand(2) == 0 ? (rand(2) == 0 ? nil : false) : true %>
+  awarded: <%= awarded = (rand(2) == 0 ? (rand(2) == 0 ? nil : false) : true) %>
 <% end %>

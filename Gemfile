@@ -22,7 +22,7 @@ group :production do
 end
 
 group :development, :test, :staging do
-  gem 'faker'
+  gem 'ffaker'
 end
 
 group :development do

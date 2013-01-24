@@ -5,6 +5,7 @@ movie_translation_en<%= i %>:
   movie_id: <%= i %>
   locale: en
   title: <%= Faker::Lorem.words.join(' ') %>
+  awarded_text: <%= Faker::HTMLIpsum.fancy_string(1, true) %>
   description: <%= Faker::Lorem.paragraph %>
   created_at: <%= time %>
   updated_at: <%= time %>
@@ -15,5 +16,6 @@ movie_translation_ru<%= i %>:
   created_at: <%= time %>
   updated_at: <%= time %>
   title: 'Мистер фримен'
+  awarded_text: <%= Faker::HTMLIpsum.fancy_string(1, true) %>
   description: "Mr. Freeman (рус. Мистер Свободный Человек) — главный персонаж анимационного веб-сериала, появившегося на YouTube 21 сентября 2009 года, и завоевавшего немалую популярность в Рунете[2]. Основное содержание роликов — монологи, в жёсткой форме критикующие образ жизни современного обывателя[3]."
 <% end %>
