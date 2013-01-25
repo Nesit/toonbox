@@ -1,0 +1,5 @@
+<% (1..15).each do |i| %>
+job_position_<%= i %>:
+  id: <%= i %>
+  open: <%= rand(2) == 0 ? false : true %>
+<% end %>

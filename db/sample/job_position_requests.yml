@@ -1,0 +1,12 @@
+<% time = Time.zone.now.to_s(:db) %>
+
+<% (1..30).each do |i| %>
+job_position_request_<%= i %>:
+  id: <%= i %>
+  job_position_id: <%= rand(1..15) %>
+  email: <%= Faker::Internet.email %>
+  text: <%= Faker::Lorem.paragraph %>
+
+  created_at: <%= time %>
+  updated_at: <%= time %>
+<% end %>

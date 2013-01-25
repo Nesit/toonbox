@@ -1,0 +1,23 @@
+<% time = Time.zone.now.to_s(:db) %>
+
+<% (1..15).each do |i| %>
+movie_translation_en<%= i %>:
+  job_position_id: <%= i %>
+  locale: en
+  title: <%= Faker::Lorem.words.join(' ') %>
+  short_description: <%= Faker::Lorem.paragraph %>
+  description: <%= Faker::Lorem.paragraph %>
+
+  created_at: <%= time %>
+  updated_at: <%= time %>
+
+movie_translation_ru<%= i %>:
+  job_position_id: <%= i %>
+  locale: ru
+  title: <%= "Вакансия #{i}" %>
+  short_description: <%= "Описание вакансии кратко #{i}" %>
+  description: <%= "Описание вакансиии #{i}" %>
+
+  created_at: <%= time %>
+  updated_at: <%= time %>
+<% end %>

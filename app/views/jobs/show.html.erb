@@ -1,0 +1,41 @@
+<div id="breadcrumbs">
+  <div class="wrapper">
+    <a href="">О Студии</a><span class="drop"></span><a href="">Вакансии</a>
+  </div>
+</div>
+
+
+
+
+<div id="center" class="bg-vacansies">
+  <div class="wrapper">
+    <div class="content-block radius-10">
+      <div class="vacansies-detail">
+	<h1><%= @job.title %></h1><br />
+	<%== @job.description %>
+      </div>
+
+      <div class="contact-form bottom-radius-10">
+	<div class="go-up">Я вам подхожу!</div>
+	<div class="call-us"><span>Позвонить нам:</span> <b>+7 495 916-7562</b></div>
+
+	<%= form_for @job_position_request, url: create_request_job_path(@job) do |f| %>
+	  <div class="field">
+	    <%= f.email_field :email, placeholder: 'Ваш e-mail' %>
+	  </div>
+	  <div class="file-field">
+	    <span class="file-mask">Прикрепить файл</span>
+	    <%= f.file_field :attachment %>
+	  </div>
+	  <div class="field">
+	    <%= f.text_area :text, placeholder: 'Расказать о себе' %>
+	  </div>
+	  <div class="button">
+	    <%= f.submit 'Написать нам' %>
+	  </div>
+	<% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

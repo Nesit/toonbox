@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125102414) do
+ActiveRecord::Schema.define(:version => 20130125114941) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,10 +46,36 @@ ActiveRecord::Schema.define(:version => 20130125102414) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "job_position_requests", :force => true do |t|
+    t.integer  "job_position_id"
+    t.string   "email"
+    t.string   "state"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.text     "text"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  create_table "job_position_translations", :force => true do |t|
+    t.integer  "job_position_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "short_description"
+    t.text     "description"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "job_position_translations", ["job_position_id"], :name => "index_job_position_translations_on_job_position_id"
+  add_index "job_position_translations", ["locale"], :name => "index_job_position_translations_on_locale"
+
   create_table "job_positions", :force => true do |t|
-    t.boolean  "open"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "open",       :default => true, :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "movie_episode_translations", :force => true do |t|
