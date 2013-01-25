@@ -1,0 +1,4 @@
+<% (1..15).each do |i| %>
+partner_<%= i %>:
+  id: <%= i %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125075951) do
+ActiveRecord::Schema.define(:version => 20130125102414) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -101,6 +101,27 @@ ActiveRecord::Schema.define(:version => 20130125075951) do
     t.datetime "updated_at", :null => false
     t.boolean  "new_movie"
     t.boolean  "awarded"
+  end
+
+  create_table "partner_translations", :force => true do |t|
+    t.integer  "partner_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "partner_translations", ["locale"], :name => "index_partner_translations_on_locale"
+  add_index "partner_translations", ["partner_id"], :name => "index_partner_translations_on_partner_id"
+
+  create_table "partners", :force => true do |t|
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "staff_translations", :force => true do |t|
