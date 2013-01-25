@@ -6,6 +6,7 @@
     font-family : Calibri;
     src : url("/assets/calibri.ttf");
 }
+
 body {
     font-family : Verdana, Helvetica, sans-serif;
     color : #A5A5A5;
@@ -860,4 +861,9 @@ h1 {
     float : left;
     margin-right : 20px;
     width : 300px;
+}
+
+.hidden {
+    visibility:hidden;
+    display: none;
 }

@@ -23,6 +23,8 @@ Toonbox::Application.routes.draw do
     resources :partners, only: [:index, :show]
     resource :contacts, only: :show
     resource :feedbacks, only: :show
+
+    root :to => 'persons#index', as: "about_us"
   end
 
   resources :news, only: [:index, :show]
