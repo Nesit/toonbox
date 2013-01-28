@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/ezotrank/active_admin_editor.git
-  revision: c67aa46b250fe2f7821d89da5a85187a8a514aa0
-  ref: c67aa46b25
+  remote: git://github.com/ejholmes/active_admin_editor.git
+  revision: ed3bf0e769954eb07087c5a3ce530f43472ef822
+  ref: ed3bf0e769
   specs:
     active_admin_editor (1.0.5)
       activeadmin (>= 0.4.0)
