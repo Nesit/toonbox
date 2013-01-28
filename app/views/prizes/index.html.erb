@@ -1,0 +1,20 @@
+<%= render 'shared/about_us_submenu' %>
+
+<div id="center" class="bg-partners">
+  <div class="wrapper">
+    <div class="content-block radius-10">
+      <div class="partner-list">
+
+	<% @prizes.each do |prize| %>
+	  <div class="partner-item radius-10">
+	    <a href="">
+	      <%= image_tag prize.logo, "data-title" => prize.title, "data-resume" => prize.description %>
+	    </a>
+	  </div>
+	<% end %>
+
+	<div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>

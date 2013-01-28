@@ -1,4 +1,4 @@
 <% (1..10).each do |i| %>
-partner_<%= i %>:
+prize_<%= i %>:
   id: <%= i %>
 <% end %>

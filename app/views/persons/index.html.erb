@@ -19,7 +19,7 @@
 	<div class="person-list">
 	  <ul>
 	    <% @staffs.each do |staff| %>
-	      <li><%= link_to staff.title, person_path(staff), :class => "person", "data-person-id" => staff.id %></li>
+	      <li><%= link_to staff.title, "", :class => "person", "data-person-id" => staff.id %></li>
 	    <% end %>
 	  </ul>
 	</div>
