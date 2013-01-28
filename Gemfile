@@ -15,6 +15,7 @@ gem 'paperclip'
 gem 'activeadmin'
 gem 'russian'
 gem 'devise-russian'
+gem 'active_admin_editor', github: 'ezotrank/active_admin_editor', ref: 'c67aa46b25'
 
 group :production do
   gem 'pg'
