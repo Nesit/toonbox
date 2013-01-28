@@ -867,3 +867,8 @@ h1 {
     visibility:hidden;
     display: none;
 }
+
+div#map{
+    width: 800px; 
+    height: 400px
+}

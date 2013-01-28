@@ -1,0 +1,44 @@
+<%= semantic_form_for [:admin, resource] do |f| %>
+  <div class="language-tabs">
+    <ul class="language-selection">
+      <%= link_to 'Русский', "#lang-ru" %>
+      <% resource.translations.each do |lang| %>
+	<% unless lang.locale == :ru %>
+	  <%= link_to ADDITIONAL_LOCALES[lang.locale.to_sym], "#lang-#{lang.locale}" %>
+	<% end %>
+      <% end %>
+    </ul>
+
+    <div id="lang-ru">
+      <%= f.inputs 'Русский текст' do %>
+        <%= f.input :right_block %>
+        <%= f.input :left_block %>
+	<% [:lj_url, :vk_url, :tw_url].each do |soc| %>
+	  <%= f.input soc %>
+	<% end %>
+      <% end %>
+      
+      <%= f.inputs 'Карта' do %>
+        <%= f.input :coords %>
+	<%= text_field_tag :address, '', id: 'decode_address' %>
+	<%= f.submit "Найти адрес", id: 'show_address' %>
+	<div id="edit_map"></div>
+      <% end %>
+    </div>
+
+    <% index = 0 %>
+    <%= f.semantic_fields_for :translations do |lf| %>
+      <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :ru %>">
+	<%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
+	  <%= lf.input :right_block %> 
+	  <%= lf.input :left_block %>
+          <%= lf.input :locale, :as => :hidden %>
+	<% end %>
+      </div>
+      <% index += 1 %>
+    <% end %>
+  </div>
+
+  <%= f.actions %>
+
+<% end %>

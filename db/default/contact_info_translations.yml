@@ -1,0 +1,10 @@
+<% time = Time.zone.now.to_s(:db) %>
+
+contact_info_translation_ru:
+  contact_info_id: 1
+  locale: ru
+  left_block: "ООО «Тунбокс»<br /><br />105120, г. Москва, Центр дизайна ArtPlay,<br /><br />Нижняя Сыромятническая, 10, корп. 7, оф. 1"
+  right_block: "<br /><em>+7 495 916 7562<br />+7 495 782 2723</em><br /><br />toonbox@ya.ru"
+
+  created_at: <%= time %>
+  updated_at: <%= time %>

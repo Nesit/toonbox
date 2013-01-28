@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128064749) do
+ActiveRecord::Schema.define(:version => 20130128071449) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,27 @@ ActiveRecord::Schema.define(:version => 20130128064749) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "contact_info_translations", :force => true do |t|
+    t.integer  "contact_info_id"
+    t.string   "locale"
+    t.text     "right_block"
+    t.text     "left_block"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "contact_info_translations", ["contact_info_id"], :name => "index_contact_info_translations_on_contact_info_id"
+  add_index "contact_info_translations", ["locale"], :name => "index_contact_info_translations_on_locale"
+
+  create_table "contact_infos", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "coords"
+    t.text     "lj_url"
+    t.text     "vk_url"
+    t.text     "tw_url"
+  end
 
   create_table "feedback_translations", :force => true do |t|
     t.integer  "feedback_id"
