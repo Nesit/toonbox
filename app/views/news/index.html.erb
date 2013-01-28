@@ -11,48 +11,29 @@
       <div class="content-header top-radius-10">Последние новости</div>
 
       <div class="news-list">
+	<% @latest_news.each do |novelty| %>
+	  <div class="news-item radius-10">
+	    <div class="info radius-10">
+	      <div class="thumb">
+		<%= link_to image_tag(novelty.image), novelty_path(novelty) %>
+	      </div>
+	      <div class="name"><%= novelty.title %></div>
+	      <div class="resume"><%== novelty.description %></div>
 
-	<div class="news-item radius-10">
-	  <div class="info radius-10">
-	    <div class="thumb"><a href=""><img src="sample/samp_45.jpg"></a></div>
-	    <div class="name">Какая то интересная новость</div>
-	    <div class="resume">Ищем и чтото там делаем и тому подобное труляля</div>
+	      <div class="more-detail">
+		<%= link_to "Подробнее", novelty_path(novelty), class: 'radius' %></div>
+	    </div>
+	    <div class="news-item-footer">
+	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" target="_blank">
+		<%= image_tag 'icon-vk.png' %>
+	      </a>
+	      <a href="http://vkontakte.ru/share.php?url=<%= novelty_url(novelty) %>" target="_blank">
+		<%= image_tag 'icon-fb.png' %>
+	      </a>
+	    </div>
+	  </div>
+	<% end %>
 
-	    <div class="more-detail"><a class="radius" href="">Подробнее</a></div>
-	  </div>
-	  <div class="news-item-footer">
-	    <img src="images/icon-vk.png">
-	    <img src="images/icon-fb.png">
-	  </div>
-	</div>
-
-	<div class="news-item radius-10">
-	  <div class="info radius-10">
-	    <div class="thumb"><a href=""><img src="sample/samp_45.jpg"></a></div>
-	    <div class="name">Какая то интересная новость</div>
-	    <div class="resume">Ищем и чтото там делаем и тому подобное труляля</div>
-
-	    <div class="more-detail"><a class="radius" href="">Подробнее</a></div>
-	  </div>
-	  <div class="news-item-footer">
-	    <img src="images/icon-vk.png">
-	    <img src="images/icon-fb.png">
-	  </div>
-	</div>
-
-	<div class="news-item radius-10">
-	  <div class="info radius-10">
-	    <div class="thumb"><a href=""><img src="sample/samp_45.jpg"></a></div>
-	    <div class="name">Какая то интересная новость</div>
-	    <div class="resume">Ищем и чтото там делаем и тому подобное труляля</div>
-
-	    <div class="more-detail"><a class="radius" href="">Подробнее</a></div>
-	  </div>
-	  <div class="news-item-footer">
-	    <img src="images/icon-vk.png">
-	    <img src="images/icon-fb.png">
-	  </div>
-	</div>
 
 	<div class="clear"></div>
 
@@ -60,33 +41,28 @@
 	  Остальные новости
 	</div>
 
-	<div class="news-item radius-10">
-	  <div class="info radius-10">
-	    <div class="thumb"><a href=""><img src="sample/samp_45.jpg"></a></div>
-	    <div class="name">Какая то интересная новость</div>
-	    <div class="resume">Ищем и чтото там делаем и тому подобное труляля</div>
+	<% @news.each do |novelty| %>
+	  <div class="news-item radius-10">
+	    <div class="info radius-10">
+	      <div class="thumb">
+		<%= link_to image_tag(novelty.image), novelty_path(novelty) %>
+	      </div>
+	      <div class="name"><%= novelty.title %></div>
+	      <div class="resume"><%== novelty.description %></div>
 
-	    <div class="more-detail"><a class="radius" href="">Подробнее</a></div>
+	      <div class="more-detail">
+		<%= link_to "Подробнее", novelty_path(novelty), class: 'radius' %></div>
+	    </div>
+	    <div class="news-item-footer">
+	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" target="_blank">
+		<%= image_tag 'icon-vk.png' %>
+	      </a>
+	      <a href="http://vkontakte.ru/share.php?url=<%= novelty_url(novelty) %>" target="_blank">
+		<%= image_tag 'icon-fb.png' %>
+	      </a>
+	    </div>
 	  </div>
-	  <div class="news-item-footer">
-	    <img src="images/icon-vk.png">
-	    <img src="images/icon-fb.png">
-	  </div>
-	</div>
-
-	<div class="news-item radius-10">
-	  <div class="info radius-10">
-	    <div class="thumb"><a href=""><img src="sample/samp_45.jpg"></a></div>
-	    <div class="name">Какая то интересная новость</div>
-	    <div class="resume">Ищем и чтото там делаем и тому подобное труляля</div>
-
-	    <div class="more-detail"><a class="radius" href="">Подробнее</a></div>
-	  </div>
-	  <div class="news-item-footer">
-	    <img src="images/icon-vk.png">
-	    <img src="images/icon-fb.png">
-	  </div>
-	</div>
+	<% end %>
 
 	<div class="clear"></div>
 

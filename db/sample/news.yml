@@ -1,0 +1,5 @@
+<% (1..10).each do |i| %>
+novelty_<%= i %>:
+  id: <%= i %>
+  published: <%= rand(2) == 0 ? false : true %>
+<% end %>

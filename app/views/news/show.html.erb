@@ -1,0 +1,38 @@
+<div id="breadcrumbs">
+  <div class="wrapper">
+    <a href="">Новости</a><span class="drop"></span><%= link_to @novelty.title novelty_path(@novelty) %>
+  </div>
+</div>
+
+<div id="center" class="bg-news">
+  <div class="wrapper">
+
+    <div class="content radius-10">
+      <div class="news-detail top-radius-10">
+	<div class="thumb">
+	  <%= image_tag @novelty.image, style: "float:left;" %>
+	</div>
+	<div class="name">
+	  <span class="date"><%= @novelty.created_at.to_s(:novelty) %></span>
+	  <h1><%= @novelty.title %></h1>
+	</div>
+	<div class="info">
+	  <%== @novelty.text %>
+	</div>
+	<div class="clear"></div>
+      </div>
+      <div class="news-detail-footer bottom-radius-10">
+	<a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(@novelty) %>" target="_blank">
+	  <%= image_tag 'icon-vk.png' %>
+	</a>
+	<a href="http://vkontakte.ru/share.php?url=<%= novelty_url(@novelty) %>" target="_blank">
+	  <%= image_tag 'icon-fb.png' %>
+	</a>
+	<a href="https://twitter.com/share?url=<%= novelty_url(@novelty) %>&text=<%= @novelty.title %>" target="_blank">
+	  <%= image_tag 'icon-tw.png' %>
+	</a>
+      </div>
+    </div>
+
+  </div>
+</div>
