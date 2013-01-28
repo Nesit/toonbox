@@ -1,5 +1,5 @@
 class PortfolioController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.with_image
   end
 end
