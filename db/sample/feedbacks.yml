@@ -1,0 +1,4 @@
+<% (1..15).each do |i| %>
+feedback_<%= i %>:
+  id: <%= i %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125114941) do
+ActiveRecord::Schema.define(:version => 20130128064749) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,6 +45,27 @@ ActiveRecord::Schema.define(:version => 20130125114941) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "feedback_translations", :force => true do |t|
+    t.integer  "feedback_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "feedback_translations", ["feedback_id"], :name => "index_feedback_translations_on_feedback_id"
+  add_index "feedback_translations", ["locale"], :name => "index_feedback_translations_on_locale"
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "job_position_requests", :force => true do |t|
     t.integer  "job_position_id"

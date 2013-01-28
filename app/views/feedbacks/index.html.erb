@@ -1,0 +1,30 @@
+<%= render 'shared/about_us_submenu' %>
+
+<div id="breadcrumbs">
+  <div class="wrapper">
+    <a href="">О Студии</a><span class="drop"></span><a href="">Отзывы</a>
+  </div>
+</div>
+
+<div id="center" class="bg-feedback">
+  <div class="wrapper">
+    <div class="content-block radius-10">
+      <div class="feedback-list">
+
+	<% @feedbacks.each do |feedback| %>
+	  <div class="feedback-item">
+	    <div class="feedback-dialog radius-10">
+	      <div class="resume"><%== feedback.text %></div>
+	      <div class="name"><%= feedback.title %></div>
+	      <span class="arrow"></span>
+	    </div>
+	    <div class="feedback-logo"><%= image_tag feedback.logo %></div>
+	  </div>
+	<% end %>
+
+	<div class="clear"></div>
+
+      </div>
+    </div>
+  </div>
+</div>

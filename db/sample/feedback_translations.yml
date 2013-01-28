@@ -1,0 +1,21 @@
+<% time = Time.zone.now.to_s(:db) %>
+
+<% (1..15).each do |i| %>
+feedback_translation_en<%= i %>:
+  feedback_id: <%= i %>
+  locale: en
+  title: <%= Faker::Lorem.words.join(' ') %>
+  text: <%= Faker::Lorem.paragraph %>
+
+  created_at: <%= time %>
+  updated_at: <%= time %>
+
+feedback_translation_ru<%= i %>:
+  feedback_id: <%= i %>
+  locale: ru
+  title: <%= "Отзыв #{i}" %>
+  text: <%= "Текст отзыва #{i}" %>
+
+  created_at: <%= time %>
+  updated_at: <%= time %>
+<% end %>
