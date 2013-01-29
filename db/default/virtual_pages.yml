@@ -1,0 +1,8 @@
+<% %w[portfolio persons partners contacts prizes feedbacks jobs news].each do |name| %>
+<%= name %>:
+  name: <%= name %>
+<% end %>
+
+
+
+ 

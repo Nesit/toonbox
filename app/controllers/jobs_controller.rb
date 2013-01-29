@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = JobPosition.opens.order('created_at DESC')
+    @seo_tags = VirtualPage.find_by_name('jobs').seo_tags
   end
 
   def show

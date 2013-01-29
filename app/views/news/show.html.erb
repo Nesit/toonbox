@@ -22,13 +22,13 @@
 	<div class="clear"></div>
       </div>
       <div class="news-detail-footer bottom-radius-10">
-	<a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(@novelty) %>" target="_blank">
-	  <%= image_tag 'icon-vk.png' %>
-	</a>
-	<a href="http://vkontakte.ru/share.php?url=<%= novelty_url(@novelty) %>" target="_blank">
+	<a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(@novelty) %>" class="share" data-service="Facebook">
 	  <%= image_tag 'icon-fb.png' %>
 	</a>
-	<a href="https://twitter.com/share?url=<%= novelty_url(@novelty) %>&text=<%= @novelty.title %>" target="_blank">
+	<a href="http://vkontakte.ru/share.php?url=<%= novelty_url(@novelty) %>" class="share" data-service="Vkontakte">
+	  <%= image_tag 'icon-vk.png' %>
+	</a>
+	<a href="https://twitter.com/share?url=<%= novelty_url(@novelty) %>&text=<%= @novelty.title %>" class="share" data-service="Twitter">
 	  <%= image_tag 'icon-tw.png' %>
 	</a>
       </div>

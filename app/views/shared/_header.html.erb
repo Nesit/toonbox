@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/<%= I18n.locale == :en ? 'en_US' : 'ru_RU' %>/all.js#xfbml=1&appId=<%= Rails.configuration.facebook_app_id %>";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="header">
   <div class="wrapper">
     <div class="logo">
@@ -19,6 +28,7 @@
     <div class="header-social radius">
       <div class="social-counter">
 	<%= image_tag 'fb-header.png' %>
+	<div class="fb-like" data-href="<%= host_path %>" data-send="true" data-width="450" data-show-faces="true"></div>
 	<span class="people-count radius">1234</span>
       </div>
       <div class="lang">

@@ -24,10 +24,10 @@
 		<%= link_to "Подробнее", novelty_path(novelty), class: 'radius' %></div>
 	    </div>
 	    <div class="news-item-footer">
-	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" target="_blank">
+	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" class="share" data-service="Facebook">
 		<%= image_tag 'icon-vk.png' %>
 	      </a>
-	      <a href="http://vkontakte.ru/share.php?url=<%= novelty_url(novelty) %>" target="_blank">
+	      <a href="http://vkontakte.ru/share.php?url=<%= novelty_url(novelty) %>" class="share" data-service="Vkontakte">
 		<%= image_tag 'icon-fb.png' %>
 	      </a>
 	    </div>
@@ -54,10 +54,10 @@
 		<%= link_to "Подробнее", novelty_path(novelty), class: 'radius' %></div>
 	    </div>
 	    <div class="news-item-footer">
-	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" target="_blank">
+	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" class="share" data-service="Facebook">
 		<%= image_tag 'icon-vk.png' %>
 	      </a>
-	      <a href="http://vkontakte.ru/share.php?url=<%= novelty_url(novelty) %>" target="_blank">
+	      <a href="http://vkontakte.ru/share.php?url=<%= novelty_url(novelty) %>" class="share" data-service="Vkontakte">
 		<%= image_tag 'icon-fb.png' %>
 	      </a>
 	    </div>

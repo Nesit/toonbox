@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128134441) do
+ActiveRecord::Schema.define(:version => 20130129062413) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -260,6 +260,29 @@ ActiveRecord::Schema.define(:version => 20130128134441) do
     t.datetime "photo_updated_at"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+  end
+
+  create_table "virtual_page_translations", :force => true do |t|
+    t.integer  "virtual_page_id"
+    t.string   "locale"
+    t.text     "html_title"
+    t.text     "html_keywords"
+    t.text     "html_description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "virtual_page_translations", ["locale"], :name => "index_virtual_page_translations_on_locale"
+  add_index "virtual_page_translations", ["virtual_page_id"], :name => "index_virtual_page_translations_on_virtual_page_id"
+
+  create_table "virtual_pages", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "name",               :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

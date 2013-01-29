@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Toonbox</title>
+    <% @seo_tags = {} if @seo_tags.nil? %>
+    <title><%= @seo_tags[:title] %></title>
+    <meta name="description" content="<%= @seo_tags[:description] %>">
+    <meta name="keywords" content="<%= @seo_tags[:keywords] %>">
+
+    <!-- start social meta -->
+    <meta property="og:image" content="<%= URI.join(host_path, @seo_tags[:image]) if @seo_tags[:image] %>"/>
+    <meta property="og:title" content="<%= @seo_tags[:title] %>"/>
+    <meta property="og:description" content="<%= @seo_tags[:description] %>"/>
+    <meta property="og:url" content="<%= full_url %>"/>
+    <meta property="og:site_name" content="Toonbox"/>
+    <meta property="og:type" content="website"/>
+    <!-- end social meta -->
+
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
