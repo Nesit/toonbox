@@ -4,7 +4,7 @@ class Novelty < ActiveRecord::Base
   translates :title, :description, :text, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
 
-  has_attached_file :image, styles: { thumb: '214x179>' },
+  has_attached_file :image, styles: { thumb: '214x179^#' },
                             path: ":rails_root/public/system/:class/:attachment/:id/:style/:filename",
                             url: "/system/:class/:attachment/:id/:style/:filename",
                             default_style: :thumb

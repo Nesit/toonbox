@@ -35,7 +35,7 @@
 	  <% elsif episode.images.present? %>
 	    <a rel="prettyPhoto[gallery3]" href="<%= episode.default_image %>">
 	      <% episode.images.each do |image| %>
-		<% image_tag image.image.path, style: "width: 272px;" %>
+		<% image_tag image.image.path(:lightbox), style: "width: 272px;" %>
 	      <% end %>
 	    </a>
 	  <% else %>

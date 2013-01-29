@@ -1,7 +1,7 @@
 class MovieImage < ActiveRecord::Base
   belongs_to :relation, polymorphic: true
 
-  has_attached_file :image, styles: { thumb: "266x143>" },
+  has_attached_file :image, styles: { thumb: "272x147^#", lightbox: '1280x720>' },
                     path: ":rails_root/public/system/:class/:attachment/:id/:style/:filename",
                     url: "/system/:class/:attachment/:id/:style/:filename",
                     default_style: :thumb,
