@@ -14,6 +14,13 @@
     <meta property="og:site_name" content="Toonbox"/>
     <meta property="og:type" content="website"/>
     <!-- end social meta -->
+    
+    <script type="text/javascript">
+      var app = {
+        head_section: "<%= @head_section%>",
+        submenu_section: "<%= @submenu_section %>"
+      }
+    </script>
 
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>

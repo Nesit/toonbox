@@ -2,7 +2,7 @@ unhide_person_block =(link) ->
   for block in $('div.person_block')
     $(block).addClass('hidden') if !$(block).hasClass('hidden')
 
-  for block in $('li.current')
+  for block in $('div.person-list ul li.current')
     $(block).removeClass('current')
 
   id = $(link).data('person-id')

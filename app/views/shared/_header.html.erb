@@ -14,14 +14,14 @@
     </div>
     <div class="menu">
       <ul>
-	<li class="current">
-	  <%= link_to t(:portfolio), root_path, class: 'radius' %>
+	<li>
+	  <%= link_to t(:portfolio), root_path, class: 'radius', id: 'portfolio_head' %>
 	</li>
 	<li>
-	  <%= link_to t(:about_studio), about_us_path, class: 'radius' %>
+	  <%= link_to t(:about_studio), about_us_path, class: 'radius', id: 'about_studio_head' %>
 	</li>
 	<li>
-	  <%= link_to t(:news), news_path, class: 'radius' %>
+	  <%= link_to t(:news), news_path, class: 'radius', id: 'news_head' %>
 	</li>
       </ul>
     </div>

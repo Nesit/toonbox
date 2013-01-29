@@ -1,3 +1,9 @@
+current_head_section =() ->
+  $("##{app['head_section']}_head").parent().addClass('current')
+
+current_submenu_section =() ->
+  $("##{app['submenu_section']}_submenu").parent().addClass('current')
+
 share_social =(url, service) ->
   width  = 575
   height = 400
@@ -10,6 +16,9 @@ share_social =(url, service) ->
 
 $ ->
   console.log "Loaded overall.js.coffee"
+
+  current_head_section()
+  current_submenu_section()
 
   $('a.share').live 'click', ->
     share_social($(@).attr('href'), $(@).data('service'))
