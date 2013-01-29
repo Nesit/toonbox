@@ -21,7 +21,7 @@
 	      </a>
 	    </div>
 	    <% if movie.new_movie? %>
-	      <div class="new-icon-item"><img src="/assets/icon-new.png" data-title="Новый сериал" data-resume="" alt="" /></div>
+	      <div class="new-icon-item"><img src="/assets/icon-new.png" data-title="<%= t(:new_movie) %>" data-resume="" alt="" /></div>
 	    <% end %>
 	    <% if movie.awarded? %>
 	      <div class="award-icon-item"><img src="/assets/icon-award.png" data-resume="<%== movie.awarded_text %>" alt="" /></div>

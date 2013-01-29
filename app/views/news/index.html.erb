@@ -1,6 +1,6 @@
 <div id="breadcrumbs">
   <div class="wrapper">
-    <a href="">Новости</a>
+    <%= link_to t(:news), news_path %>
   </div>
 </div>
 
@@ -8,7 +8,7 @@
   <div class="wrapper">
 
     <div class="content radius-10">
-      <div class="content-header top-radius-10">Последние новости</div>
+      <div class="content-header top-radius-10"><%= t(:latest_news) %></div>
 
       <div class="news-list">
 	<% @latest_news.each do |novelty| %>
@@ -21,7 +21,7 @@
 	      <div class="resume"><%== novelty.description %></div>
 
 	      <div class="more-detail">
-		<%= link_to "Подробнее", novelty_path(novelty), class: 'radius' %></div>
+		<%= link_to t(:more), novelty_path(novelty), class: 'radius' %></div>
 	    </div>
 	    <div class="news-item-footer">
 	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" class="share" data-service="Facebook">
@@ -38,7 +38,7 @@
 	<div class="clear"></div>
 
 	<div class="news-other-title">
-	  Остальные новости
+	  <%= t(:other_news) %>
 	</div>
 
 	<% @news.each do |novelty| %>
@@ -51,7 +51,7 @@
 	      <div class="resume"><%== novelty.description %></div>
 
 	      <div class="more-detail">
-		<%= link_to "Подробнее", novelty_path(novelty), class: 'radius' %></div>
+		<%= link_to t(:more), novelty_path(novelty), class: 'radius' %></div>
 	    </div>
 	    <div class="news-item-footer">
 	      <a href="http://www.facebook.com/sharer.php?u=<%= novelty_url(novelty) %>" class="share" data-service="Facebook">

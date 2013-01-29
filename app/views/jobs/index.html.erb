@@ -2,9 +2,9 @@
 
 <div id="breadcrumbs">
   <div class="wrapper">
-    <a href="">О Студии</a>
+    <%= link_to t(:about_studio), about_us_path %>
     <span class="drop"></span>
-    <a href="">Вакансии</a>
+    <%= link_to t(:jobs), jobs_path %>
   </div>
 </div>
 
@@ -16,7 +16,7 @@
 	  <div class="vacansies-item radius-10">
 	    <div class="name"><%= job.title %></div>
 	    <div class="info"><%= job.short_description %></div>
-	    <div class="more-detail"><%= link_to "Подробнее", job_path(job), class: :radius %></div>
+	    <div class="more-detail"><%= link_to t(:more), job_path(job), class: :radius %></div>
 	  </div>
 	<% end %>
 	<div class="clear"></div>

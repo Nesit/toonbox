@@ -1,9 +1,15 @@
 <div id="footer">
   <div class="wrapper">
     <div class="address">
-      ООО &laquo;Тунбокс&raquo;<br />
-      105120, г. Москва, Центр дизайна ArtPlay,<br />
-      Нижняя Сыромятническая, 10, корп. 7, оф. 1
+      <% if I18n.locale == :ru %>
+        ООО &laquo;Тунбокс&raquo;<br />
+        105120, г. Москва, Центр дизайна ArtPlay,<br />
+        Нижняя Сыромятническая, 10, корп. 7, оф. 1
+      <% else %>
+        LLC &laquo;Tunboks&raquo;<br />
+        105120, Moscow, Design Centre ArtPlay, <br />
+        Syromiatnicheskaya, 10, Bldg. 7, of. 1
+      <% end %>
     </div>
 
     <div class="contact-phone">

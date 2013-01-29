@@ -2,7 +2,9 @@
 
 <div id="breadcrumbs">
   <div class="wrapper">
-    <a href="">О Студии</a><span class="drop"></span><a href="">Отзывы</a>
+    <%= link_to t(:about_studio), about_us_path %>
+    <span class="drop"></span>
+    <%= link_to t(:feedbacks), feedbacks_path %>
   </div>
 </div>
 

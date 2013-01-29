@@ -2,9 +2,9 @@
 
 <div id="breadcrumbs">
   <div class="wrapper">
-    <%= link_to "О Студии", about_us_path %>
+    <%= link_to t(:about_studio), about_us_path %>
     <span class="drop"></span>
-    <%= link_to "Персоналии", persons_path %>
+    <%= link_to t(:persons), persons_path %>
     <span class="drop"></span>
     <a href="" class="head_name"></a>
   </div>
@@ -14,7 +14,7 @@
   <div class="wrapper">
 
     <div class="content-column fl radius-10">
-      <div class="content-header top-radius-10">Сотрудники</div>
+      <div class="content-header top-radius-10"><%= t(:staffs) %></div>
       <div class="content-block">
 	<div class="person-list">
 	  <ul>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="content-column fr radius-10">
-      <div class="content-header top-radius-10">Информация</div>
+      <div class="content-header top-radius-10"><%= t(:info) %></div>
       <% @staffs.each do |staff| %>
 	<div class="person_block hidden" id="person_<%= staff.id %>">
 	  <div class="content-block">

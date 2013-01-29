@@ -1,6 +1,8 @@
 <div id="breadcrumbs">
   <div class="wrapper">
-    <a href="">Новости</a><span class="drop"></span><%= link_to @novelty.title novelty_path(@novelty) %>
+    <%= link_to t(:news), news_path %>
+    <span class="drop">
+    </span><%= link_to @novelty.title novelty_path(@novelty) %>
   </div>
 </div>
 

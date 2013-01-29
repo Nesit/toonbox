@@ -7,6 +7,22 @@ ru:
   contacts: Контакты
   feedbacks: Отзывы
   job_positions: Вакансии
+  prizes: Награды
+  new_movie: Новый сериал
+  portfolio: Портфолио
+  about_studio: О Студии
+  staffs: Сотрудники
+  info: Информация
+  contacts: Контакты
+  jobs: Вакансии
+  more: Подробнее
+  i_will_go_up: Я вам подхожу!
+  call_us: Позвонить нам
+  attach_file: Прикрепить файл
+  tell_about_your_self: Расказать о себе
+  write_us: Написать нам
+  latest_news: Последние новости
+  other_news: Остальные новости
   episode:
     zero: Еще пока нет серий
     one: серия

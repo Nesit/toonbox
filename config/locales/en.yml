@@ -2,3 +2,30 @@ en:
   portfolio: Portfolio
   about_studio: About as
   news: News
+  persons: Persons
+  partners: Partners
+  contacts: Contacts
+  feedbacks: Feedbacks
+  job_positions: Job positions
+  prizes: Prizes
+  new_movie: New serial
+  portfolio: Portfolio
+  about_studio: About studio
+  staffs: Staffs
+  info: Information
+  contacts: Contacts
+  jobs: Jobs
+  more: More
+  i_will_go_up: I will go up!
+  call_us: Call us
+  attach_file: Attach file
+  tell_about_your_self: Tell about your self
+  write_us: Write us
+  latest_news: Latest news
+  other_news: Other news
+  episode:
+    zero: No episodes
+    one: episode
+    few: episodes
+    many: episodes
+    other: episodes
