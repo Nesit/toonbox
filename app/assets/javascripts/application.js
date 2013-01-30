@@ -3,5 +3,6 @@
 //= require jquery.cookie/jquery.cookie
 //= require jquery.prettyphoto/jquery.prettyPhoto
 
+
 //= require_tree ./application
 
