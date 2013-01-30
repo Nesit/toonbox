@@ -2,7 +2,10 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration
   def migrate(direction)
     super
     # Create a default user
-    AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password') if direction == :up
+    AdminUser.create!(:email => 'admin@example.com',
+                      :password => 'password',
+                      :password_confirmation => 'password',
+                      :receive_resume => true) if direction == :up
   end
 
   def change
@@ -41,6 +44,8 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration
 
 
       t.timestamps
+
+      t.boolean :receive_resume
     end
 
     add_index :admin_users, :email,                :unique => true

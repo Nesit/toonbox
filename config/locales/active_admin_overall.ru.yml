@@ -26,3 +26,12 @@ ru:
         few: Администраторы
         many: Администраторы
         other: Администраторы
+    attributes:
+      admin_user:
+        email: Email
+        current_sign_in_at: Время авторизации
+        last_sign_in_at: Время последний авторизации
+        sign_in_count: Количество авторизаций
+        receive_resume: Получать письма с вакансиями
+        password: Пароль
+        password_confirmation: Повторите пароль

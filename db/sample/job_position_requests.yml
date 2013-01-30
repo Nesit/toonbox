@@ -1,6 +1,6 @@
 <% time = Time.zone.now.to_s(:db) %>
 
-<% (1..30).each do |i| %>
+<% (1..15).each do |i| %>
 job_position_request_<%= i %>:
   id: <%= i %>
   job_position_id: <%= rand(1..15) %>

@@ -6,8 +6,6 @@ def sample_image
   File.new @images.sample
 end
 
-ids = JobPositionRequest.all.map {|j| j.id}.sample(rand((JobPositionRequest.count / 2)..JobPositionRequest.count))
-
-JobPositionRequest.find(ids) do |job_position_request|
+JobPositionRequest.all.each do |job_position_request|
   job_position_request.update_attribute(:attachment, sample_image)
 end
