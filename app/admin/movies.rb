@@ -1,4 +1,11 @@
+# -*- coding: utf-8 -*-
 ActiveAdmin.register Movie do
+  menu label: 'Фильмы'
+  actions :all, :except => [:show]
+
+  filter :new_movie, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true
+  filter :awarded, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true
+
   form partial: 'form'
 
   controller do
@@ -11,7 +18,7 @@ ActiveAdmin.register Movie do
       movie = Movie.find(params[:id])
       @images = []
       params[:images].each do |image|
-	@images << movie.images.create(image: image)
+        @images << movie.images.create(image: image)
       end
       render 'admin/shared/movie_images/add_image', layout: false
     end
@@ -21,6 +28,20 @@ ActiveAdmin.register Movie do
       head :ok
     end
 
+  end
+
+  index do
+    column "Изображение" do |resource|
+      link_to image_tag(resource.default_image), ''
+    end
+    column :title
+    column :new_movie do |resource|
+      resource.new_movie? ? 'Да' : 'Нет'
+    end
+    column :awarded do |resource|
+      resource.awarded? ? 'Да' : 'Нет'
+    end
+    default_actions
   end
 
 end

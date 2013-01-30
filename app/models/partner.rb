@@ -10,4 +10,6 @@ class Partner < ActiveRecord::Base
                             default_style: :thumb
 
   attr_accessible :title, :description, :logo
+
+  validates :title, :description, :logo, presence: true
 end

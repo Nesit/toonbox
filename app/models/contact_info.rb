@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class ContactInfo < ActiveRecord::Base
   include TranslationStuff
 
@@ -5,4 +6,8 @@ class ContactInfo < ActiveRecord::Base
   accepts_nested_attributes_for :translations
 
   attr_accessible :coords, :right_block, :left_block, :lj_url, :vk_url, :tw_url
+
+  def name
+    'Контактная информация'
+  end
 end

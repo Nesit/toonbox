@@ -12,9 +12,9 @@
     <div id="lang-ru">
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %> 
-        <%= f.input :description %>
+        <%= f.input :description, as: :html_editor %>
 	<%= f.input :movie, include_blank: false, selected: resource.movie.try(:id) || params[:movie_id] %>
-	<%= f.input :video_url %>
+	<%= f.input :video_url, input_html: { rows: 2 } %>
       <% end %>
     </div>
 
@@ -23,7 +23,7 @@
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :ru %>">
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :title %>
-          <%= lf.input :description %>
+          <%= lf.input :description, as: :html_editor %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>

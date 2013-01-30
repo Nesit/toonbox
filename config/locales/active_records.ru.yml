@@ -1,0 +1,102 @@
+ru:
+  activerecord:
+    models:
+      feedback:
+        one: Отзыв
+        few: Отзывы
+        many: Отзывы
+        other: Отзывы
+      contact_info:
+        one: Контактную информацию
+        few: Контактная информация
+        many: Контактная информация
+        other: Контактная информация
+      virtual_page:
+        one: Виртуальную страницу
+        few: Виртуальные страници
+        many: Виртуальные страници
+        other: Виртуальные страници
+      staff:
+        one: Сотрудник
+        few: Сотрудники
+        many: Сотрудники
+        other: Сотрудники
+      prize:
+        one: Награда
+        few: Награды
+        many: Награды
+        other: Награды
+      partner:
+        one: Партнёр
+        few: Партнёры
+        many: Партнёры
+        other: Партнёры
+      novelty:
+        one: Новость
+        few: Новости
+        many: Новости
+        other: Новости
+      movie:
+        one: Фильм
+        few: Фильмы
+        many: Фильмы
+        other: Фильмы
+      movie_episode:
+        one: Эпизод
+        few: Эпизоды
+        many: Эпизоды
+        other: Эпизоды
+    attributes:
+      contact_info:
+        right_block: Правый блок
+        left_block: Левый блок
+        lj_url: LiveJournal url
+        vk_url: Vkontakte url
+        tw_url: Twitter url
+      virtual_page:
+        image: Изображение
+        name: Название
+        html_title: Название страницы
+        html_keywords: Ключивые слова страници
+        html_description: Описание страници
+      staff:
+        title: Имя
+        job: Должность
+        biography: Биография
+        lj_url: LiveJournal url
+        vk_url: Vkontakte url
+        tw_url: Twitter url
+        position: Позиция
+        photo: Фотография
+      prize:
+        logo: Логотип
+        title: Название
+        description: Описание
+      partner:
+        title: Название
+        description: Описание
+        logo: Логотип
+      novelty:
+        title: Название
+        description: Описание
+        text: text
+        published: Опубликованно
+        image: Изображение
+        created_at: Дата создания
+      movie:
+        title: Название
+        description: Описание
+        new_movie: Новый фильм
+        awarded: С наградами
+        awarded_text: Описание награды
+      movie_image:
+        image: Изображение
+      movie_episode:
+        title: Название
+        description: Описание
+        video_url: Ссылка на видео
+        movie: Фильм
+      feedback:
+        title: Название
+        text: Текст
+        logo: Логотип

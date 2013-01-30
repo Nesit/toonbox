@@ -19,7 +19,7 @@
       <% end %>
       
       <%= f.inputs 'Карта' do %>
-        <%= f.input :coords %>
+        <%= f.input :coords, as: :hidden %>
 	<%= text_field_tag :address, '', id: 'decode_address' %>
 	<%= f.submit "Найти адрес", id: 'show_address' %>
 	<div id="edit_map"></div>

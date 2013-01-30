@@ -4,7 +4,7 @@ class VirtualPage < ActiveRecord::Base
   translates :html_title, :html_keywords, :html_description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
 
-  has_attached_file :image, styles: { thumb: '403x403>' },
+  has_attached_file :image, styles: { thumb: '403x403>', ico: '100x100>' },
                             path: ":rails_root/public/system/:class/:attachment/:id/:style/:filename",
                             url: "/system/:class/:attachment/:id/:style/:filename",
                             default_style: :thumb

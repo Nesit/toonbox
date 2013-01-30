@@ -9,4 +9,6 @@ class Feedback < ActiveRecord::Base
                             url: "/system/:class/:attachment/:id/:style/:filename",
                             default_style: :thumb
   attr_accessible :title, :text, :logo
+
+  validates :title, :text, :logo, presence: true
 end

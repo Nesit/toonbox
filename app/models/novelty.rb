@@ -14,6 +14,8 @@ class Novelty < ActiveRecord::Base
   scope :published, where(published: true)
   scope :published_except, lambda{|news| where('id NOT IN (?)', news.map {|n| n.id})}
 
+  validates :tile, :description, :text, :image, presence: true
+
   class << self
     def for_index_page
       published.order('created_at DESC').first(3)

@@ -12,11 +12,12 @@
     <div id="lang-ru">
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %>
+	<%= f.input :position %>
 	<%= f.input :photo, :as => :file, :hint => f.template.image_tag(f.object.photo.url) %>
 	<%= f.input :job %>
-	<%= f.input :biography %>
+	<%= f.input :biography, as: :html_editor %>
 	<% [:lj_url, :vk_url, :tw_url].each do |soc| %>
-	  <%= f.input soc %>
+	  <%= f.input soc, input_html: { rows: 2 } %>
 	<% end %>
       <% end %>
     </div>
@@ -27,7 +28,7 @@
 	<%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
 	  <%= lf.input :title %> 
 	  <%= lf.input :job %>
-	  <%= lf.input :biography %>
+	  <%= lf.input :biography, as: :html_editor %>
           <%= lf.input :locale, :as => :hidden %>
 	<% end %>
       </div>

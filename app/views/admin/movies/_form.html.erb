@@ -12,12 +12,12 @@
     <div id="lang-ru">
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %> 
-	<%= f.input :description %>
+	<%= f.input :description, as: :html_editor %>
 	<%= f.input :new_movie, as: :select, 
                                 collection: [['Да', true],['Нет', false]] %>
 	<%= f.input :awarded,   as: :select, 
                                 collection: [['Да', true],['Нет', false]] %>
-	<%= f.input :awarded_text %>
+	<%= f.input :awarded_text, as: :html_editor %>
       <% end %>
     </div>
 
@@ -26,8 +26,8 @@
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :ru %>">
 	<%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
 	  <%= lf.input :title %>
-          <%= lf.input :description %>
-	  <%= lf.input :awarded_text %>
+          <%= lf.input :description, as: :html_editor %>
+	  <%= lf.input :awarded_text, as: :html_editor %>
           <%= lf.input :locale, :as => :hidden %>
 	<% end %>
       </div>
