@@ -7,4 +7,12 @@ class JobPositionRequest < ActiveRecord::Base
   attr_accessible :email, :attachment, :text
 
   validates_attachment :attachment, :presence => true, :size => { :in => 0..10.megabytes }
+
+  after_create :send_admin_notify
+
+  protected
+
+  def send_admin_notify
+    ResumeMailer.new_resume_notify(self).deliver
+  end
 end
