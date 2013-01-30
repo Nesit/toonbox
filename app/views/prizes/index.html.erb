@@ -1,5 +1,13 @@
 <%= render 'shared/about_us_submenu' %>
 
+<div id="breadcrumbs">
+  <div class="wrapper">
+    <%= link_to t(:about_studio), about_us_path %>
+    <span class="drop"></span>
+    <%= link_to t(:prizes), partners_path %>
+  </div>
+</div>
+
 <div id="center" class="bg-partners">
   <div class="wrapper">
     <div class="content-block radius-10">
