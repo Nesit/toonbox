@@ -24,7 +24,7 @@
 	      <div class="new-icon-item"><img src="/assets/icon-new.png" data-title="<%= t(:new_movie) %>" data-resume="" alt="" /></div>
 	    <% end %>
 	    <% if movie.awarded? %>
-	      <div class="award-icon-item"><img src="/assets/icon-award.png" data-resume="<%== movie.awarded_text %>" alt="" /></div>
+	      <div class="award-icon-item"><img src="/assets/icon-award.png" data-resume="<%= movie.awarded_text %>" alt="" /></div>
 	    <% end %>
 	    <div class="series-thumb">
 	      <div class="icon-mask radius">
