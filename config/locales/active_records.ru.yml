@@ -1,6 +1,16 @@
 ru:
   activerecord:
     models:
+      job_position_request:
+        one: Запрос на вакансию
+        few: Запрос на вакансии
+        many: Запросы на вакансии
+        other: Запросы на вакансии
+      job_position:
+        one: Вакансия
+        few: Вакансии
+        many: Вакансии
+        other: Вакансии
       feedback:
         one: Отзыв
         few: Отзывы
@@ -100,3 +110,13 @@ ru:
         title: Название
         text: Текст
         logo: Логотип
+      job_position:
+        title: Название
+        open: Вакансия открыта
+        requests: Запросы на вакансию
+        short_description: Краткое описание
+        description: Описание
+      job_position_request:
+        email: Email
+        job_position: Вакансия
+        attachment: Резюме

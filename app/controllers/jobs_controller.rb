@@ -14,8 +14,9 @@ class JobsController < ApplicationController
   end
 
   def create_request
-    job_request = JobPositionRequest.new(params[:job_position_request])
-    if job_request.save
+    @job = JobPosition.find(params[:id])
+    @job_position_request = @job.requests.new(params[:job_position_request])
+    if @job_position_request.save
       flash[:notice] = "job position was saved"
       redirect_to root_path
     else
