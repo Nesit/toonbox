@@ -13,9 +13,14 @@
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %>
 	<%= f.input :logo, :as => :file, :hint => f.template.image_tag(f.object.logo.url) %>
+	<%= f.input :url, input_html: { rows: 2 } %>
 	<%= f.input :description, as: :html_editor %>
       <% end %>
     </div>
+
+    <div>
+      <%= link_to('Сайт', resource.url, target: '_blank') if resource.url.present? %>
+    </div> 
 
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>

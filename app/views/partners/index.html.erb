@@ -12,16 +12,16 @@
   <div class="wrapper">
     <div class="content-block radius-10">
       <div class="partner-list">
-	
-	<% @partners.each do |partner| %>
-	  <div class="partner-item radius-10">
-	    <a href="">
-	      <%= image_tag partner.logo, "data-title" => partner.title, "data-resume" => partner.description %>
-	    </a>
-	</div>
-	<% end %>
 
-	<div class="clear"></div>
+        <% @partners.each do |partner| %>
+          <div class="partner-item radius-10">
+            <%= link_to (partner.url || '#') do %>
+              <%= image_tag partner.logo, "data-title" => partner.title, "data-resume" => partner.description %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="clear"></div>
       </div>
     </div>
   </div>

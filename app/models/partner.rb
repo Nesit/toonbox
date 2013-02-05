@@ -9,7 +9,7 @@ class Partner < ActiveRecord::Base
                             url: "/system/:class/:attachment/:id/:style/:filename",
                             default_style: :thumb
 
-  attr_accessible :title, :description, :logo
+  attr_accessible :title, :description, :logo, :url
 
   validates :title, :description, :logo, presence: true
 end
