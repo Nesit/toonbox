@@ -14,8 +14,44 @@ share_social =(url, service) ->
   myWindow = window.open(url, service, opts)
   myWindow.focus()
 
+$.noty.defaults =
+  layout: "top"
+  theme: 'defaultTheme'
+  type: "alert"
+  text: ""
+  dismissQueue: true # If you want to use queue feature set this true
+  template: "<div class=\"noty_message\"><span class=\"noty_text\"></span><div class=\"noty_close\"></div></div>"
+  animation:
+    open:
+      height: "toggle"
+    close:
+      height: "toggle"
+    easing: "swing"
+    speed: 500 # opening & closing animation speed
+
+  timeout: 3000 # delay for closing event. Set false for sticky notifications
+  force: false # adds notification to the beginning of queue when set to true
+  modal: false
+  closeWith: ["hover"]
+  callback:
+    onShow: ->
+    afterShow: ->
+    onClose: ->
+    afterClose: ->
+
+  buttons: false # an array of buttons
+
+window.send_notify =(text, type='alert') ->
+  noty(text: text, type: type)
+
+check_default_notice =->
+  window.send_notify(app['flash_notice'], 'success') if app['flash_notice'] != ''
+  window.send_notify(app['flash_alert'], 'error') if app['flash_alert'] != ''
+
 $ ->
   console.log "Loaded overall.js.coffee"
+
+  check_default_notice()
 
   current_head_section()
   current_submenu_section()
@@ -67,3 +103,4 @@ $ ->
     theme: "facebook"
     slideshow: 10000
     hideflash: true
+
