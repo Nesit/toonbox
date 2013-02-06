@@ -6,6 +6,7 @@ class JobPositionRequest < ActiveRecord::Base
 
   attr_accessible :email, :attachment, :text
 
+  validates :email, :attachment, :text, presence: true
   validates_attachment :attachment, :presence => true, :size => { :in => 0..10.megabytes }
 
   after_create :send_admin_notify

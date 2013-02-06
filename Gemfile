@@ -17,6 +17,7 @@ gem 'russian'
 gem 'devise-russian'
 gem 'active_admin_editor', github: 'ejholmes/active_admin_editor', ref: 'ed3bf0e769'
 gem 'exception_notification'
+gem 'client_side_validations'
 
 group :production do
   gem 'pg'

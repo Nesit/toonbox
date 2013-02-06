@@ -63,6 +63,7 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    client_side_validations (3.2.1)
     cocaine (0.4.2)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -248,6 +249,7 @@ DEPENDENCIES
   activeadmin
   better_errors
   binding_of_caller
+  client_side_validations
   coffee-rails (~> 3.2.1)
   debugger
   devise-russian
