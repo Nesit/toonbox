@@ -1,6 +1,11 @@
 ru:
   activerecord:
     models:
+      public_image:
+        one: Изображение
+        few: Изображиении
+        many: Изображении
+        other: Изображении
       job_position_request:
         one: Запрос на вакансию
         few: Запрос на вакансии
@@ -120,3 +125,8 @@ ru:
         email: Email
         job_position: Вакансия
         attachment: Резюме
+      public_image:
+        attachment: Изображение
+        created_at: Дата создания
+        attachment_file_name: Название файла
+        attachment_file_size: Размер файла

@@ -9,7 +9,7 @@ ru:
     :reset: 'Резатнуть %{model}'
     :required: 'Обязательно'
   active_admin:
-    new_model: '%{model}'
+    new_model: 'Новая %{model}'
     create_model: "Создать %{model}"
     edit_model: "Редактировать %{model}"
     update_model: "Обновить %{model}"
