@@ -791,7 +791,7 @@ h1 {
     top:-10px; 
     left:-10px; 
     opacity:0; 
-    filter:alpha(opacity:0); 
+    filter:alpha(opacity=0); 
     cursor:pointer
 }
 
