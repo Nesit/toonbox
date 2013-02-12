@@ -1,49 +1,32 @@
-set :stage_dir, "config/deploy/stages"
-set :stages, Dir[ "#{ File.dirname(__FILE__) }/deploy/stages/*.rb" ].collect { |fn| File.basename(fn, ".rb") }
+set :stages, %w(production staging)
+set :default_stage, "production"
+require 'capistrano/ext/multistage'
 
-set :application, "toonbox"
+require 'bundler/capistrano'
+
 set :repository,  "git@github.com:balticit/toonbox.git"
-
 set :scm, :git
-set :use_sudo, false
+set :application, "toonbox"
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
+default_run_options[:shell] = '/bin/bash -l'
 set :deploy_via, :remote_cache
-set :default_stage, "staging"
+set :use_sudo, false
 set :keep_releases, 10
+set :asset_env, "RAILS_GROUPS=assets"
+set :rvm_type, :system
+require "rvm/capistrano"
 
-default_run_options[:shell] = 'bash -l'
-# set :whenever_command, "bundle exec whenever"
-# set :whenever_environment, defer { stage }
-set :rake, 'bundle exec rake'
+before 'deploy:assets:precompile', 'deploy:symlink_shared'
+after 'deploy:restart','deploy:cleanup'
 
-after 'deploy:update_code', 'deploy:symlink_shared'
+after 'deploy:symlink_shared', 'db:create'
+after 'db:create', 'db:migrate'
+after 'db:migrate', 'db:seed'
+
+after 'deploy:restart', 'unicorn:restart'
 
 namespace :deploy do
-  task :default do
-    transaction do
-      update_code
-      symlink
-      db.migrate
-      assets.precompile
-      unicorn.stop
-      unicorn.start
-    end
-    deploy.cleanup
-  end
-
-  namespace :assets do
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      puts "CURRENT_REVISION: #{current_revision}"
-      puts "SOURCE.NEXT_REVISION: #{source.next_revision(current_revision)}"
-      from = source.next_revision(current_revision)
-      puts "SOURCE LOCAL LOG: #{source.local.log(from)}"
-      puts capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l")
-      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
-	run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
-      else
-	logger.info "Skipping asset pre-compilation because there were no asset changes"
-      end
-    end
-  end
 
   desc "Symlink shared configs and folders on each release."
   task :symlink_shared, :roles => :app do
@@ -53,11 +36,30 @@ namespace :deploy do
 end
 
 namespace :db do
+  task :create, :roles => :db do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:create --trace"
+  end
+
   task :migrate, :roles => :db do
-    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake db:migrate --trace"
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:migrate --trace"
+  end
+
+  task :seed, :roles => :db do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:seed --trace"
+  end
+
+  task :load_sample, :roles => :app do
+    run "cd #{latest_release}; RAILS_ENV=#{rails_env} more_samples=true bundle exec rake db:load_sample --trace"
   end
 end
 
-require 'bundler/capistrano'
-require 'capistrano/ext/multistage'
-require 'capistrano-unicorn'
+namespace :unicorn do
+  task :stop, :roles => :app do
+    run "/etc/init.d/#{application}_#{stage} stop"
+  end
+
+  task :restart, :roles => :app do
+    run "/etc/init.d/#{application}_#{stage} restart"
+  end
+end
+
