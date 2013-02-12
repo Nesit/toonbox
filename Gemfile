@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -38,4 +38,3 @@ group :development do
   gem 'binding_of_caller'
   gem 'letter_opener'
 end
-
