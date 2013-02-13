@@ -28,7 +28,9 @@
 	  <% if episode.video_url %>
 	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
 	  <% elsif episode.images.present? %>
-	    <a rel="prettyPhoto[gallery3]" class="icon-image" href="<%= episode.default_image %>">Смотреть<br />картинки</a>
+	    <a rel="prettyPhoto[gallery3]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
+	      Смотреть<br />картинки
+	    </a>
 	  <% else %>
 	    <span>nothing</span>
 	  <% end %>
@@ -38,11 +40,12 @@
 	  <% if episode.video_url %>
 	    <a href=""><%= image_tag episode.default_image, style: 'width: 272px;' %></a>
 	  <% elsif episode.images.present? %>
-	    <a rel="prettyPhoto[gallery3]" href="<%= episode.default_image %>">
-	      <% episode.images.each do |image| %>
-		<% image_tag image.image.path(:lightbox), style: "width: 272px;" %>
-	      <% end %>
+	    <a href="">
+	      <%= image_tag episode.default_image, style: "width: 272px;" %>
 	    </a>
+	    <% episode.images.each do |image| %>
+	      <a rel="prettyPhoto[gallery3]" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
+	    <% end %>
 	  <% else %>
 	    <span>nothing</span>
 	  <% end %>
