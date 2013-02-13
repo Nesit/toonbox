@@ -9,7 +9,7 @@ ActiveAdmin.register VirtualPage do
   index do
     id_column
     column :image do |resource|
-      link_to image_tag(resource.image.url(:ico)), resource.image.url(:original)
+      link_to(image_tag(resource.image.url(:ico)), resource.image.url(:original)) if resource.image.present?
     end
     column :name
     column :html_title

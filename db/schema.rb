@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206081921) do
+ActiveRecord::Schema.define(:version => 20130213123541) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130206081921) do
     t.text     "lj_url"
     t.text     "vk_url"
     t.text     "tw_url"
+    t.text     "fb_url"
   end
 
   create_table "feedback_translations", :force => true do |t|
@@ -271,6 +272,7 @@ ActiveRecord::Schema.define(:version => 20130206081921) do
     t.datetime "photo_updated_at"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.text     "fb_url"
   end
 
   create_table "virtual_page_translations", :force => true do |t|

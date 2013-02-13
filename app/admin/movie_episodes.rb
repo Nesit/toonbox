@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register MovieEpisode do
-  menu label: 'Эпизоды'
+  menu label: 'Эпизоды', parent: 'Модули'
   actions :all, :except => [:show]
 
   filter :movie

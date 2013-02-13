@@ -43,10 +43,10 @@
 	    </div>
 	  </div>
 	  <div class="content-footer bottom-radius-10">
-	    <% %w[lj vk tw].each do |soc| %>
+	    <% %w[lj vk tw fb].each do |soc| %>
 	      <%= link_to staff.send("#{soc}_url".to_sym) do %>
 		<%= image_tag "icon-#{soc}.png" %>
-	      <% end if staff.send("#{soc}_url".to_sym) %>
+	      <% end if staff.send("#{soc}_url".to_sym).present? %>
 	    <% end %>
 	  </div>
 	</div>

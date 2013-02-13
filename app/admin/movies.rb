@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register Movie do
-  menu label: 'Фильмы'
+  menu label: 'Фильмы', parent: 'Модули'
   actions :all, :except => [:show]
 
   filter :new_movie, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true

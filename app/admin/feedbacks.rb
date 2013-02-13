@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register Feedback do
-  menu label: 'Отзывы'
+  menu label: 'Отзывы', parent: 'Модули'
   actions :all, :except => [:show]
   config.clear_sidebar_sections!
 

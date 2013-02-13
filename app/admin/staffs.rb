@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register Staff do
-  menu label: 'Сотрудники'
+  menu label: 'Сотрудники', parent: 'Модули'
   actions :all, :except => [:show]
   config.clear_sidebar_sections!
 

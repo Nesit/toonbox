@@ -13,7 +13,7 @@
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :right_block, as: :html_editor %>
         <%= f.input :left_block, as: :html_editor %>
-	<% [:lj_url, :vk_url, :tw_url].each do |soc| %>
+	<% [:lj_url, :vk_url, :tw_url, :fb_url].each do |soc| %>
 	  <%= f.input soc %>
 	<% end %>
       <% end %>
