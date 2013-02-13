@@ -32,5 +32,5 @@ $ ->
     if $(@).val()
       add_images()
 
-  $("input.default_image").live 'click', () ->
+  $("input.default_image").on 'click', () ->
     set_image_as_default($(@).parents("div.image").data("image-id"))
