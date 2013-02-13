@@ -58,7 +58,7 @@ namespace :db do
   end
 
   task :load_sample, :roles => :app do
-    run "cd #{latest_release}; RAILS_ENV=#{rails_env} more_samples=true bundle exec rake db:load_sample --trace"
+    run "cd #{latest_release}; RAILS_ENV=#{rails_env} more_samples=true #{rake} db:load_sample --trace"
   end
 end
 
