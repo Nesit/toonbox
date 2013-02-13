@@ -94,8 +94,8 @@ $ ->
                  </div>
                  """
     $(@).append(div_append)
-
-  $(".partner-item").on 'mouseleave', ->
+ 
+  $(".partner-item").on 'mouseleave', -> 
     $(@).find(".partner-info-wrapper").remove()
 
   $(".series-thumb a[rel^='prettyPhoto']").prettyPhoto
