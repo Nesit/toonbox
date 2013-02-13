@@ -15,4 +15,8 @@ set :app_env, 'staging'
 
 set :rake, "#{File.join shared_path, 'scripts/rvm_wrapper.sh'} bundle exec rake"
 
+before 'db:drop', 'unicorn:stop'
+before 'db:create', 'db:drop'
 after 'db:seed', 'db:load_sample'
+
+before 'unicorn:restart', 'deploy:symlink_robots'

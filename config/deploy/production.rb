@@ -14,3 +14,5 @@ set :keep_releases, 5
 set :app_env, 'production'
 
 set :rake, "#{File.join shared_path, 'scripts/rvm_wrapper.sh'} bundle exec rake"
+
+before 'unicorn:restart', 'deploy:symlink_robots'

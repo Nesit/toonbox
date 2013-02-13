@@ -1,5 +1,6 @@
-set :stages, %w(production staging)
-set :default_stage, "production"
+set :stage_dir, "config/deploy"
+set :stages, Dir[ "#{ File.dirname(__FILE__) }/deploy/*.rb" ].collect { |fn| File.basename(fn, ".rb") }
+set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
 require 'bundler/capistrano'
@@ -33,9 +34,17 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
+  task :symlink_robots, :roles => :app do
+    run "ln -nfs #{shared_path}/config/robots.txt #{release_path}/public/robots.txt"
+  end
+
 end
 
 namespace :db do
+  task :drop, :roles => :db do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:drop --trace"
+  end
+
   task :create, :roles => :db do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:create --trace"
   end
