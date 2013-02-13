@@ -1,12 +1,3 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/<%= I18n.locale == :en ? 'en_US' : 'ru_RU' %>/all.js#xfbml=1&appId=<%= Rails.configuration.facebook_app_id %>";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 <div id="header">
   <div class="wrapper">
     <div class="logo">
@@ -28,8 +19,7 @@
     <div class="header-social radius">
       <div class="social-counter">
 	<%= image_tag 'fb-header.png' %>
-  
-	<div class="fb-like" data-href="<%= host_path %>" data-send="true" data-width="450" data-show-faces="true"></div>
+	<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FToonbox%2F137457992997733&send=false&layout=button_count&width=450&show_faces=false&font&colorscheme=light&action=like&height=21&appId=387281317989326" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
 	<span class="people-count radius">1234</span>
       </div>
       <div class="lang">
