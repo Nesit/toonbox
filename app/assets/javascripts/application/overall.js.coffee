@@ -51,10 +51,10 @@ check_default_notice =->
 $ ->
   console.log "Loaded overall.js.coffee"
 
-  check_default_notice()
+  # check_default_notice()
 
-  current_head_section()
-  current_submenu_section()
+  # current_head_section()
+  # current_submenu_section()
 
   $('a.share').live 'click', ->
     share_social($(@).attr('href'), $(@).data('service'))

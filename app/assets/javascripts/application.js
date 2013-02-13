@@ -8,5 +8,5 @@
 //= require noty/themes/default
 
 
-
+//= require_tree ./application
 
