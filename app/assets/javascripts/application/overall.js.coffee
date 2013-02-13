@@ -56,9 +56,9 @@ $ ->
   current_head_section()
   current_submenu_section()
 
-  # $('a.share').live 'click', ->
-  #   share_social($(@).attr('href'), $(@).data('service'))
-  #   false
+  $('a.share').live 'click', ->
+    share_social($(@).attr('href'), $(@).data('service'))
+    false
 
   # # Change user locale
   # $('div.lang a').bind 'click', ->
