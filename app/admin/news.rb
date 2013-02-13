@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register Novelty do
-  menu label: 'Новости'
+  menu label: 'Новости', parent: 'Модули'
   actions :all, :except => [:show]
 
   filter :published, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register Partner do
-  menu label: 'Партнеры'
+  menu label: 'Партнеры', parent: 'Модули'
   actions :all, :except => [:show]
   config.clear_sidebar_sections!
 

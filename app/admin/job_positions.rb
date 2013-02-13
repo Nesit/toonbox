@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register JobPosition do
-  menu label: 'Вакансии'
+  menu label: 'Вакансии', parent: 'Модули'
   actions :all, :except => [:show]
 
   filter :open, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true

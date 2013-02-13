@@ -13,7 +13,7 @@ ru:
     create_model: "Создать %{model}"
     edit_model: "Редактировать %{model}"
     update_model: "Обновить %{model}"
-    dashboard: Общие
+    dashboard: Рабочий стол
     scopes:
       all: Все
       not_defineds: Не определенные заявки
