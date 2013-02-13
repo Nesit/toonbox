@@ -16,7 +16,7 @@
 	<%= f.input :photo, :as => :file, :hint => f.template.image_tag(f.object.photo.url) %>
 	<%= f.input :job %>
 	<%= f.input :biography, as: :html_editor %>
-	<% [:lj_url, :vk_url, :tw_url].each do |soc| %>
+	<% [:lj_url, :vk_url, :tw_url, :fb_url].each do |soc| %>
 	  <%= f.input soc, input_html: { rows: 2 } %>
 	<% end %>
       <% end %>
