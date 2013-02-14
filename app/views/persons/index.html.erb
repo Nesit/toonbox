@@ -20,8 +20,8 @@
       <div class="content-block">
 	<div class="person-list">
 	  <ul>
-	    <% @staffs.each do |staff| %>
-	      <li><%= link_to staff.title, "", :class => "person", "data-person-id" => staff.id %></li>
+	    <% Staff.all.each do |staff| %>
+	      <li class="<%= 'current' if @staff == staff %>"><%= link_to staff.title, persons_path(id: staff.id), :class => "person" %></li>
 	    <% end %>
 	  </ul>
 	</div>
@@ -30,27 +30,27 @@
 
     <div class="content-column fr radius-10">
       <div class="content-header top-radius-10"><%= t(:info) %></div>
-      <% @staffs.each do |staff| %>
-	<div class="person_block hidden" id="person_<%= staff.id %>">
-	  <div class="content-block">
-	    <div class="person-info">
-	      <div class="thumb"><%= image_tag staff.photo %></div>
-	      <div class="name"><%= staff.title %></div>
-	      <div class="type"><%= staff.job %></div>
-	      <div class="resume">
-		<%== staff.biography  %>
-	      </div>
+
+      <div class="person_block" id="person_<%= @staff.id %>">
+	<div class="content-block">
+	  <div class="person-info">
+	    <div class="thumb"><%= image_tag @staff.photo %></div>
+	    <div class="name"><%= @staff.title %></div>
+	    <div class="type"><%= @staff.job %></div>
+	    <div class="resume">
+	      <%== @staff.biography  %>
 	    </div>
 	  </div>
-	  <div class="content-footer bottom-radius-10">
-	    <% %w[lj vk tw fb].each do |soc| %>
-	      <%= link_to staff.send("#{soc}_url".to_sym) do %>
-		<%= image_tag "icon-#{soc}.png" %>
-	      <% end if staff.send("#{soc}_url".to_sym).present? %>
-	    <% end %>
-	  </div>
 	</div>
-      <% end %>
+	<div class="content-footer bottom-radius-10">
+	  <% %w[lj vk tw fb].each do |soc| %>
+	    <%= link_to @staff.send("#{soc}_url".to_sym) do %>
+	      <%= image_tag "icon-#{soc}.png" %>
+	    <% end if @staff.send("#{soc}_url".to_sym).present? %>
+	  <% end %>
+	</div>
+      </div>
+
     </div>
 
     <div class="clear"></div>
