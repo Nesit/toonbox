@@ -103,7 +103,7 @@ $ ->
     false
 
   # Change user locale
-  $('div.lang a.radius').bind 'click', ->
+  $('div.lang a.change_language').bind 'click', ->
     $.cookie('locale', $(@).data('language'))
     window.location.reload()
 
