@@ -1,3 +1,45 @@
+window.Share =
+  vkontakte: (purl, ptitle, pimg, text) ->
+    url = "http://vkontakte.ru/share.php?"
+    url += "url=" + encodeURIComponent(purl)
+    url += "&title=" + encodeURIComponent(ptitle)
+    url += "&description=" + encodeURIComponent(text)
+    url += "&image=" + encodeURIComponent(pimg)
+    url += "&noparse=true"
+    Share.popup url
+
+  odnoklassniki: (purl, text) ->
+    url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1"
+    url += "&st.comments=" + encodeURIComponent(text)
+    url += "&st._surl=" + encodeURIComponent(purl)
+    Share.popup url
+
+  facebook: (purl, ptitle, pimg, text) ->
+    url = "http://www.facebook.com/sharer.php?s=100"
+    url += "&p[title]=" + encodeURIComponent(ptitle)
+    url += "&p[summary]=" + encodeURIComponent(text)
+    url += "&p[url]=" + encodeURIComponent(purl)
+    url += "&p[images][0]=" + encodeURIComponent(pimg)
+    Share.popup url
+
+  twitter: (purl, ptitle) ->
+    url = "http://twitter.com/share?"
+    url += "text=" + encodeURIComponent(ptitle)
+    url += "&url=" + encodeURIComponent(purl)
+    url += "&counturl=" + encodeURIComponent(purl)
+    Share.popup url
+
+  mailru: (purl, ptitle, pimg, text) ->
+    url = "http://connect.mail.ru/share?"
+    url += "url=" + encodeURIComponent(purl)
+    url += "&title=" + encodeURIComponent(ptitle)
+    url += "&description=" + encodeURIComponent(text)
+    url += "&imageurl=" + encodeURIComponent(pimg)
+    Share.popup url
+
+  popup: (url) ->
+    window.open url, "", "toolbar=0,status=0,width=626,height=436"
+
 current_head_section =() ->
   $("##{app['head_section']}_head").parent().addClass('current')
 

@@ -13,22 +13,26 @@
 <div class="content-block radius-10">
 <div class="series-list">
 
-  <% @movie.episodes.each do |episode| %>
+  <% @movie.episodes.each_with_index do |episode, index| %>
     <div class="series-item radius">
       <div class="social-bookmark top-radius">
-	<a href="http://www.facebook.com/sharer.php?u=<%= movie_episode_url(@movie, episode) %>" target="_blank">
+	<% url = "#{full_url}#prettyPhoto[gallery#{index}]/0/" %>
+	<% title = episode.title %>
+	<% description = episode.description %>
+	<% image = URI.join(host_path, episode.default_image) %>
+	<a onclick="window.Share.facebook('<%= url %>','<%= title %>','<%= image %>','<%= description %>')">
 	  <span class="fb-mark"></span>
 	</a>
-	<a href="http://vkontakte.ru/share.php?url=<%= movie_episode_url(@movie, episode) %>" target="_blank">
+	<a onclick="window.Share.vkontakte('<%= url %>','<%= title %>','<%= image %>','<%= description %>')">
 	  <span class="vk-mark"></span>
 	</a>
       </div>
       <div class="series-thumb">
 	<div class="icon-mask radius">
-	  <% if episode.video_url %>
+	  <% if episode.video_url.present? %>
 	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
 	  <% elsif episode.images.present? %>
-	    <a rel="prettyPhoto[gallery3]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
+	    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
 	      Смотреть<br />картинки
 	    </a>
 	  <% else %>
@@ -37,14 +41,14 @@
 	</div>
 
 	<div class="preview">
-	  <% if episode.video_url %>
+	  <% if episode.video_url.present? %>
 	    <a href=""><%= image_tag episode.default_image, style: 'width: 272px;' %></a>
 	  <% elsif episode.images.present? %>
 	    <a href="">
 	      <%= image_tag episode.default_image, style: "width: 272px;" %>
 	    </a>
-	    <% episode.images.each do |image| %>
-	      <a rel="prettyPhoto[gallery3]" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
+	    <% episode.images.each_with_index do |image, index| %>
+	      <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
 	    <% end %>
 	  <% else %>
 	    <span>nothing</span>
