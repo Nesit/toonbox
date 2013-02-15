@@ -16,7 +16,12 @@
   <% @movie.episodes.each_with_index do |episode, index| %>
     <div class="series-item radius">
       <div class="social-bookmark top-radius">
-	<% url = "#{full_url}#prettyPhoto[gallery#{index}]/0/" %>
+	<% if episode.video_url.present? %>
+	  <% url = "#{full_url}#prettyPhoto/#{index}/" %>
+	<% else %>
+	  <% url = "#{full_url}#prettyPhoto[gallery#{index}]/0/" %>
+	<% end %>
+	
 	<% title = episode.title %>
 	<% description = episode.description %>
 	<% image = URI.join(host_path, episode.default_image(:original, false)) %>

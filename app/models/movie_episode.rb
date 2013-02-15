@@ -13,7 +13,7 @@ class MovieEpisode < ActiveRecord::Base
 
   def default_image(style=:thumb, digest=true)
     if images.present?
-      images.defaults.first ? images.defaults.first.image.url(style, digest) : images.sample.image.url
+      images.defaults.first ? images.defaults.first.image.url(style, digest) : images.sample.image.url(style, digest)
     else
       '/assets/no_image.gif'
     end
