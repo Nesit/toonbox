@@ -15,6 +15,10 @@ $ ->
 
   console.log get_coords()
 
+  if $('#contact_info_coords').val()
+    $('#decode_address').remove()
+    $('#show_address').remove()
+
   init = ->
     window.myMap = new ymaps.Map('edit_map',
       center: get_coords()
@@ -69,6 +73,9 @@ $ ->
           console.log "Coords: #{myPlacemark.geometry.getCoordinates()}"
           set_coords(myPlacemark.geometry.getCoordinates())
 
+      $('#decode_address').remove()
+      $('#show_address').remove()
+     
       false
 
   ymaps.ready init
