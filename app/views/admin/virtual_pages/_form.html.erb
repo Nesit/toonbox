@@ -12,10 +12,10 @@
     <div id="lang-ru">
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :name, input_html: {readonly: true} %>
-        <%= f.input :html_title %>
-        <%= f.input :html_keywords %>
-        <%= f.input :html_description %>
-	<%= f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url) %>
+        <%= f.input :html_title, input_html: { rows: 1 } %>
+        <%= f.input :html_keywords, input_html: { rows: 1 } %>
+        <%= f.input :html_description, input_html: { rows: 1 } %>
+	<%= f.input :image, :as => :file, :hint => (f.object.image.present? ? f.template.image_tag(f.object.image.url) : '') %>
       <% end %>
     </div>
 
@@ -23,9 +23,9 @@
     <%= f.semantic_fields_for :translations do |lf| %>
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :ru %>">
 	<%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
-	  <%= lf.input :html_title %>
-          <%= lf.input :html_keywords %>
-          <%= lf.input :html_description %>
+	  <%= lf.input :html_title, input_html: { rows: 1 } %>
+          <%= lf.input :html_keywords, input_html: { rows: 1 } %>
+          <%= lf.input :html_description, input_html: { rows: 1 } %>
           <%= lf.input :locale, :as => :hidden %>
 	<% end %>
       </div>

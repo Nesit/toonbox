@@ -72,8 +72,8 @@ ru:
         image: Изображение
         name: Название
         html_title: Название страницы
-        html_keywords: Ключивые слова страници
-        html_description: Описание страници
+        html_keywords: Ключивые слова страницы
+        html_description: Описание страницы
       staff:
         title: Имя
         job: Должность
