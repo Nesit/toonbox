@@ -1,8 +1,13 @@
 class PersonsController < ApplicationController
   def index
-    @staff = params[:id] ? Staff.find(params[:id]) : Staff.first
+    @staff = Staff.first
     @seo_tags = VirtualPage.find_by_name('persons').seo_tags
     @head_section = 'about_studio'
     @submenu_section = 'persons'
+  end
+
+  def show
+    @staff = Staff.find_by_slug(params[:id])
+    render :index
   end
 end

@@ -1,5 +1,7 @@
 class Staff < ActiveRecord::Base
   include TranslationStuff
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   translates :title, :job, :biography, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
@@ -9,7 +11,7 @@ class Staff < ActiveRecord::Base
                             url: "/system/:class/:attachment/:id/:style/:filename",
                             default_style: :thumb
 
-  attr_accessible :title, :job, :biography, :lj_url, :vk_url, :tw_url, :fb_url, :position, :photo
+  attr_accessible :title, :job, :biography, :lj_url, :vk_url, :tw_url, :fb_url, :position, :photo, :slug
 
   validates :title, :job, :biography, :photo, :position, presence: true
   validates :position, uniqueness: true

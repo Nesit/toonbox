@@ -2,6 +2,7 @@
 staff_<%= i %>:
   id: <%= i %>
   position: <%= i %>
+  slug: <%= "pavel-#{rand(9999)}" %>
   lj_url: <%= rand(2) == 0 ? (rand(2) == 0 ? nil : "") : "http://koms.livejournal.com" %>
   vk_url: <%= rand(2) == 0 ? (rand(2) == 0 ? nil : "") : "http://vk.com/mutjan" %>
   tw_url: <%= rand(2) == 0 ? (rand(2) == 0 ? nil : "") : "https://twitter.com/greenmoon2" %>

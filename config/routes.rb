@@ -21,7 +21,7 @@ Toonbox::Application.routes.draw do
     resources :jobs, only: [:index, :show] do
       post :create_request, on: :member
     end
-    resources :persons, only: :index
+    resources :persons, only: [:index, :show]
     resources :partners, only: :index
     resources :prizes, only: :index
     resources :feedbacks, only: :index
