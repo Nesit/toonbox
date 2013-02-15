@@ -37,7 +37,7 @@
 	  <% if episode.video_url.present? %>
 	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
 	  <% elsif episode.images.present? %>
-	    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
+	    <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
 	      Смотреть<br />картинки
 	    </a>
 	  <% else %>
@@ -48,11 +48,11 @@
 	<div class="preview">
 	  <% if episode.video_url.present? %>
 	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
-	      <%= image_tag episode.default_image, style: 'width: 272px;' %>
+	      <%= image_tag episode.default_image, style: 'width: 272px;', alt: '' %>
 	    </a>
 	  <% elsif episode.images.present? %>
 	    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
-	      <%= image_tag episode.default_image, style: "width: 272px;" %>
+	      <%= image_tag episode.default_image, style: "width: 272px;", alt: '' %>
 	    </a>
 	    <% episode.images.each_with_index do |image, index| %>
 	      <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
