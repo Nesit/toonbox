@@ -38,7 +38,12 @@ window.Share =
     Share.popup url
 
   popup: (url) ->
-    window.open url, "", "toolbar=0,status=0,width=626,height=436"
+    width  = 740
+    height = 440
+    left   = ($(window).width()  - width)  / 2
+    top    = ($(window).height() - height) / 2
+    opts   = "toolbar=0,status=1,width=#{width},height=#{height},top=#{top},left=#{left};"
+    window.open url, "", opts
 
 current_head_section =() ->
   $("##{app['head_section']}_head").parent().addClass('current')
@@ -47,11 +52,11 @@ current_submenu_section =() ->
   $("##{app['submenu_section']}_submenu").parent().addClass('current')
 
 share_social =(url, service) ->
-  width  = 575
-  height = 400
+  width  = 740
+  height = 440
   left   = ($(window).width()  - width)  / 2
   top    = ($(window).height() - height) / 2
-  opts   = 'status=1,width=#{width},height=#{height},top=#{top},left=#{left};' 
+  opts   = "toolbar=0,status=1,width=#{width},height=#{height},top=#{top},left=#{left};"
 
   myWindow = window.open(url, service, opts)
   myWindow.focus()
