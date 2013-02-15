@@ -47,9 +47,11 @@
 
 	<div class="preview">
 	  <% if episode.video_url.present? %>
-	    <a href=""><%= image_tag episode.default_image, style: 'width: 272px;' %></a>
+	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
+	      <%= image_tag episode.default_image, style: 'width: 272px;' %>
+	    </a>
 	  <% elsif episode.images.present? %>
-	    <a href="">
+	    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
 	      <%= image_tag episode.default_image, style: "width: 272px;" %>
 	    </a>
 	    <% episode.images.each_with_index do |image, index| %>
