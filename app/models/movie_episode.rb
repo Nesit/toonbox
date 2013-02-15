@@ -11,9 +11,9 @@ class MovieEpisode < ActiveRecord::Base
 
   validates :title, :description, presence: true
 
-  def default_image
+  def default_image(style=:thumb, digest=true)
     if images.present?
-      images.defaults.first ? images.defaults.first.image.url : images.sample.image.url
+      images.defaults.first ? images.defaults.first.image.url(style, digest) : images.sample.image.url
     else
       '/assets/no_image.gif'
     end

@@ -19,7 +19,7 @@
 	<% url = "#{full_url}#prettyPhoto[gallery#{index}]/0/" %>
 	<% title = episode.title %>
 	<% description = episode.description %>
-	<% image = URI.join(host_path, episode.default_image) %>
+	<% image = URI.join(host_path, episode.default_image(:original, false)) %>
 	<a onclick="window.Share.facebook('<%= url %>','<%= title %>','<%= image %>','<%= description %>')">
 	  <span class="fb-mark"></span>
 	</a>
