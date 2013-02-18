@@ -8,6 +8,14 @@ GIT
       ejs
       rails (>= 3.0.0)
 
+GIT
+  remote: git://github.com/neo/activeadmin-sortable.git
+  revision: abe45deda57b8e24448fcdff3193c541984481f7
+  ref: abe45deda5
+  specs:
+    activeadmin-sortable (0.0.1)
+      activeadmin (~> 0.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -50,6 +58,7 @@ GEM
     activesupport (3.2.12)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts_as_list (0.1.9)
     addressable (2.3.2)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
@@ -246,6 +255,8 @@ PLATFORMS
 DEPENDENCIES
   active_admin_editor!
   activeadmin
+  activeadmin-sortable!
+  acts_as_list
   better_errors
   binding_of_caller
   capistrano

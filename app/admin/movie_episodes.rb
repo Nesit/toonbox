@@ -3,6 +3,10 @@ ActiveAdmin.register MovieEpisode do
   menu label: 'Эпизоды', parent: 'Модули'
   actions :all, :except => [:show]
 
+  config.sort_order = 'position_asc'
+  config.paginate   = false
+  sortable
+
   filter :movie
 
   form partial: 'form'
@@ -29,10 +33,12 @@ ActiveAdmin.register MovieEpisode do
   end
 
   index do
+    sortable_handle_column
     column "Изображение" do |resource|
       link_to image_tag(resource.default_image), ''
     end
     column :title
+    column :position
     column :movie
     column :video_url do |resource|
       link_to(resource.video_url, resource.video_url, target: '_blank') if resource.video_url?

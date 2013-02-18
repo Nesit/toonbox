@@ -2,6 +2,7 @@ class Staff < ActiveRecord::Base
   include TranslationStuff
   extend FriendlyId
   friendly_id :title, use: :slugged
+  acts_as_list
 
   translates :title, :job, :biography, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
@@ -15,4 +16,10 @@ class Staff < ActiveRecord::Base
 
   validates :title, :job, :biography, :photo, :position, presence: true
   validates :position, uniqueness: true
+
+  class << self
+    def clear_positions
+      self.all.each_with_index {|m, index| m.update_attribute(:position, index + 1)}
+    end
+  end
 end

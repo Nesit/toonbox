@@ -3,6 +3,10 @@ ActiveAdmin.register Movie do
   menu label: 'Фильмы', parent: 'Модули'
   actions :all, :except => [:show]
 
+  config.sort_order = 'position_asc'
+  config.paginate   = false
+  sortable
+
   filter :new_movie, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true
   filter :awarded, as: :select, collection: [['Да', true],['Нет', false]], include_blank: true
 
@@ -31,10 +35,12 @@ ActiveAdmin.register Movie do
   end
 
   index do
+    sortable_handle_column
     column "Изображение" do |resource|
       link_to image_tag(resource.default_image), ''
     end
     column :title
+    column :position
     column :new_movie do |resource|
       resource.new_movie? ? 'Да' : 'Нет'
     end

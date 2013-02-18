@@ -19,6 +19,8 @@ gem 'active_admin_editor', github: 'ejholmes/active_admin_editor', ref: 'ed3bf0e
 gem 'exception_notification'
 gem 'client_side_validations'
 gem 'friendly_id'
+gem 'acts_as_list'
+gem 'activeadmin-sortable', github: 'neo/activeadmin-sortable', ref: 'abe45deda5'
 
 group :production do
   gem 'pg'
