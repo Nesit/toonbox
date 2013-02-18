@@ -1,6 +1,6 @@
 class PersonsController < ApplicationController
   def index
-    @staff = Staff.first
+    @staff = Staff.order('position ASC').first
     @seo_tags = VirtualPage.find_by_name('persons').seo_tags
     @head_section = 'about_studio'
     @submenu_section = 'persons'

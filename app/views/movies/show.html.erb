@@ -13,7 +13,7 @@
 <div class="content-block radius-10">
 <div class="series-list">
 
-  <% @movie.episodes.each_with_index do |episode, index| %>
+  <% @movie.episodes.order('position ASC').each_with_index do |episode, index| %>
     <div class="series-item radius">
       <div class="social-bookmark top-radius">
 	<% if episode.video_url.present? %>

@@ -20,7 +20,7 @@
       <div class="content-block">
 	<div class="person-list">
 	  <ul>
-	    <% Staff.all.each do |staff| %>
+	    <% Staff.order('position ASC').each do |staff| %>
 	      <li class="<%= 'current' if @staff == staff %>"><%= link_to staff.title, person_path(staff), :class => "person" %></li>
 	    <% end %>
 	  </ul>
