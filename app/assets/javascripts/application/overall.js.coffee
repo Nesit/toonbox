@@ -114,12 +114,10 @@ $ ->
 
 
   $(".award-icon-item img").on 'mouseenter', ->
-    data_title = $(@).attr("data-title")
     data_resume = $(@).attr("data-resume")
     div_append = """
                  <div class='icon-info-wrapper radius'>
                    <span class='arrow'></span>
-                     <strong>#{data_title}</strong>
                      <p>#{data_resume}</p>
                  </div>
                 """
@@ -130,12 +128,10 @@ $ ->
 
 
   $(".partner-item").on 'mouseenter', ->
-    data_title = $(@).find("img").attr("data-title")
     data_resume = $(@).find("img").attr("data-resume")  
     div_append = """
                  <div class='partner-info-wrapper radius-10'>
                    <span class='arrow'></span>
-                   <strong>#{data_title}</strong>
                    <p>#{data_resume}</p>
                  </div>
                  """
