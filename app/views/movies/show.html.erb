@@ -54,8 +54,8 @@
 	    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
 	      <%= image_tag episode.default_image, style: "width: 272px;", alt: '' %>
 	    </a>
-	    <% episode.images.each_with_index do |image, index| %>
-	      <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
+	    <% episode.images.each_with_index do |image, ext_index| %>
+	      <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= ext_index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
 	    <% end %>
 	  <% else %>
 	    <span>nothing</span>
