@@ -17,7 +17,17 @@ class MovieEpisode < ActiveRecord::Base
     if images.present?
       images.defaults.first ? images.defaults.first.image.url(style, digest) : images.sample.image.url(style, digest)
     else
-      '/assets/no_image.gif'
+      nil
+    end
+  end
+
+  def first_lightbox
+    if images.defaults.present? && images.count > 1
+      images.not(images.defaults.first).first
+    elsif images.present?
+      images.first
+    else
+      nil
     end
   end
 

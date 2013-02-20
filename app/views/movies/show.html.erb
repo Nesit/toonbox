@@ -24,7 +24,7 @@
 	
 	<% title = episode.title %>
 	<% description = episode.description %>
-	<% image = URI.join(host_path, episode.default_image(:original, false)) %>
+	<% image = URI.join(host_path, episode.default_image(:original, false)) rescue '' %>
 	<a onclick="window.Share.facebook('<%= url %>','<%= title %>','<%= image %>','<%= description %>')">
 	  <span class="fb-mark"></span>
 	</a>
@@ -37,7 +37,9 @@
 	  <% if episode.video_url.present? %>
 	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
 	  <% elsif episode.images.present? %>
-	    <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
+	    <% first_image = episode.first_lightbox %>
+	    <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" 
+                      href="<%= first_image.image.url(:lightbox) %>">
 	      Смотреть<br />картинки
 	    </a>
 	  <% else %>
@@ -51,10 +53,14 @@
 	      <%= image_tag episode.default_image, style: 'width: 272px;', alt: '' %>
 	    </a>
 	  <% elsif episode.images.present? %>
-	    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= episode.images.first.image.url(:lightbox) %>">
+	    <% second_image = episode.images.not(first_image).first %>
+	    <% if second_image %>
+	      <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= second_image.image.url(:lightbox) %>">
+	    <% end %>
+
 	      <%= image_tag episode.default_image, style: "width: 272px;", alt: '' %>
 	    </a>
-	    <% episode.images.each_with_index do |image, ext_index| %>
+	    <% episode.images.not([first_image, second_image].compact).each_with_index do |image, ext_index| %>
 	      <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= ext_index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
 	    <% end %>
 	  <% else %>

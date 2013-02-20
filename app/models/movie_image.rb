@@ -9,7 +9,10 @@ class MovieImage < ActiveRecord::Base
 
   attr_accessible :relation_id, :relation, :default, :image
 
-  scope :defaults, where(default: true)
+  scope :defaults, -> { where(default: true) }
+  scope :not, lambda {|images|
+    images.class == Array ? where('id not in (?)', images.map {|i| i.id}) : where('id != ?', images.id)
+  }
 
   before_save :check_default
 
