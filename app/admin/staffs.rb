@@ -17,7 +17,6 @@ ActiveAdmin.register Staff do
     end
     column :title
     column :job
-    column :position
     default_actions
   end
 end

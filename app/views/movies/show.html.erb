@@ -37,7 +37,7 @@
 	  <% if episode.video_url.present? %>
 	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
 	  <% elsif episode.images.present? %>
-	    <% first_image = episode.first_lightbox %>
+	    <% first_image = episode.images.defaults.first %>
 	    <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" 
                       href="<%= first_image.image.url(:lightbox) %>">
 	      Смотреть<br />картинки

@@ -38,8 +38,9 @@ ActiveAdmin.register MovieEpisode do
       link_to image_tag(resource.default_image), ''
     end
     column :title
-    column :position
-    column :movie
+    column :movie do |resource|
+      link_to resource.movie.title, edit_admin_movie_path(resource.movie)
+    end
     column :video_url do |resource|
       link_to(resource.video_url, resource.video_url, target: '_blank') if resource.video_url?
     end

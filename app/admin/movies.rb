@@ -40,7 +40,6 @@ ActiveAdmin.register Movie do
       link_to image_tag(resource.default_image), ''
     end
     column :title
-    column :position
     column :new_movie do |resource|
       resource.new_movie? ? 'Да' : 'Нет'
     end
