@@ -20,7 +20,7 @@ gem 'exception_notification'
 gem 'client_side_validations'
 gem 'friendly_id'
 gem 'acts_as_list'
-gem 'activeadmin-sortable', github: 'neo/activeadmin-sortable', ref: 'abe45deda5'
+gem 'activeadmin-sortable', github: 'ezotrank/activeadmin-sortable'
 
 group :production do
   gem 'pg'

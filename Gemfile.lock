@@ -9,9 +9,8 @@ GIT
       rails (>= 3.0.0)
 
 GIT
-  remote: git://github.com/neo/activeadmin-sortable.git
-  revision: abe45deda57b8e24448fcdff3193c541984481f7
-  ref: abe45deda5
+  remote: git://github.com/ezotrank/activeadmin-sortable.git
+  revision: fe0caa1eeb0c0a630e4b793944e565fedc4c5027
   specs:
     activeadmin-sortable (0.0.1)
       activeadmin (~> 0.4)
