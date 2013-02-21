@@ -10,7 +10,8 @@ GIT
 
 GIT
   remote: git://github.com/ezotrank/activeadmin-sortable.git
-  revision: fe0caa1eeb0c0a630e4b793944e565fedc4c5027
+  revision: e465152a3c366dd501a56b2475bee5f0ce32cffd
+  branch: toonbox
   specs:
     activeadmin-sortable (0.0.1)
       activeadmin (~> 0.4)

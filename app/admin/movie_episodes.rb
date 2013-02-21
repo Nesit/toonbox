@@ -34,6 +34,7 @@ ActiveAdmin.register MovieEpisode do
 
   index do
     sortable_handle_column
+    column :position
     column "Изображение" do |resource|
       link_to(image_tag(resource.default_image(:admin)), '') if resource.default_image.present?
     end

@@ -1,8 +1,6 @@
 class MovieEpisode < ActiveRecord::Base
   include TranslationStuff
 
-  acts_as_list
-
   translates :title, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
 
@@ -28,12 +26,6 @@ class MovieEpisode < ActiveRecord::Base
       images.first
     else
       nil
-    end
-  end
-
-  class << self
-    def clear_positions
-      self.all.each_with_index {|m, index| m.update_attribute(:position, index + 1)}
     end
   end
 end
