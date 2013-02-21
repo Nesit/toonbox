@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register MovieEpisode do
-  menu label: 'Фильмы', parent: 'Модули'
+  menu label: 'Фильмы', parent: 'Модули', priority: 16
   actions :all, :except => [:show]
 
   config.sort_order = 'position_asc'
