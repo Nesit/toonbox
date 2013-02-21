@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.register MovieEpisode do
-  menu label: 'Эпизоды', parent: 'Модули'
+  menu label: 'Фильмы', parent: 'Модули'
   actions :all, :except => [:show]
 
   config.sort_order = 'position_asc'
@@ -35,7 +35,7 @@ ActiveAdmin.register MovieEpisode do
   index do
     sortable_handle_column
     column "Изображение" do |resource|
-      link_to image_tag(resource.default_image), ''
+      link_to(image_tag(resource.default_image(:admin)), '') if resource.default_image.present?
     end
     column :title
     column :movie do |resource|

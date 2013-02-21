@@ -13,8 +13,16 @@ class Movie < ActiveRecord::Base
 
   validates :title, :description, presence: true
 
-  def default_image
-    (images.present? && images.defaults.first) ? images.defaults.first.image.url : '/assets/no_image.gif'
+  # def default_image
+  #   (images.present? && images.defaults.first) ? images.defaults.first.image.url : '/assets/no_image.gif'
+  # end
+
+  def default_image(style=:thumb, digest=true)
+    if images.present?
+      images.defaults.first ? images.defaults.first.image.url(style, digest) : images.sample.image.url(style, digest)
+    else
+      nil
+    end
   end
 
   class << self

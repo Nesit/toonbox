@@ -52,15 +52,15 @@ ru:
         many: Новости
         other: Новости
       movie:
+        one: Категорию фильма
+        few: Категории фильмов
+        many: Категории фильмов
+        other: Категории фильмов
+      movie_episode:
         one: Фильм
         few: Фильмы
         many: Фильмы
         other: Фильмы
-      movie_episode:
-        one: Эпизод
-        few: Эпизоды
-        many: Эпизоды
-        other: Эпизоды
     attributes:
       contact_info:
         right_block: Правый блок
