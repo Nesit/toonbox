@@ -903,25 +903,25 @@ h1 {
     width : 100%;
 }
 .bg-about {
-    background :#e6f1fa url(/assets/bg-about.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-about.jpg) center center no-repeat*/;
 }
 .bg-vacansies {
-    background :#e6f1fa url(/assets/bg-vacansies.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-vacansies.jpg) center center no-repeat*/;
 }
 .bg-news {
-    background :#e6f1fa url(/assets/bg-news.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-news.jpg) center center no-repeat*/;
 }
 .bg-partners {
-    background :#e6f1fa url(/assets/bg-partners.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-partners.jpg) center center no-repeat*/;
 }
 .bg-reward {
-    background :#e6f1fa url(/assets/bg-reward.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-reward.jpg) center center no-repeat*/;
 }
 .bg-contact {
-    background :#e6f1fa url(/assets/bg-contact.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-contact.jpg) center center no-repeat*/;
 }
 .bg-feedback {
-    background :#e6f1fa url(/assets/bg-feedback.jpg) center center no-repeat;
+    background :#e6f1fa /*url(/assets/bg-feedback.jpg) center center no-repeat*/;
 }
 #footer {
     background : #338fd2;
