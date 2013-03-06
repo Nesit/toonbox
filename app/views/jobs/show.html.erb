@@ -16,6 +16,9 @@
       <div class="vacansies-detail">
 	<h1><%= @job.title %></h1><br />
 	<%== @job.description %>
+	
+	<br />
+	<%= link_to(t(:test_job), @job.test_job.url(:original, false)) if @job.test_job.present? %>
       </div>
 
       <div class="contact-form bottom-radius-10">

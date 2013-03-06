@@ -17,7 +17,7 @@ GIT
       activeadmin (~> 0.4)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.12)
       actionpack (= 3.2.12)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218065201) do
+ActiveRecord::Schema.define(:version => 20130306080203) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -117,9 +117,13 @@ ActiveRecord::Schema.define(:version => 20130218065201) do
   add_index "job_position_translations", ["locale"], :name => "index_job_position_translations_on_locale"
 
   create_table "job_positions", :force => true do |t|
-    t.boolean  "open",       :default => true, :null => false
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.boolean  "open",                  :default => true, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.string   "test_job_file_name"
+    t.string   "test_job_content_type"
+    t.integer  "test_job_file_size"
+    t.datetime "test_job_updated_at"
   end
 
   create_table "movie_episode_translations", :force => true do |t|

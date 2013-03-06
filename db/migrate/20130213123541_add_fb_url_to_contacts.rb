@@ -1,9 +1,5 @@
 class AddFbUrlToContacts < ActiveRecord::Migration
-  def up
+  def change
     add_column :contact_infos, :fb_url, :text
-  end
-
-  def down
-    remove_column :contact_infos, :fb_url
   end
 end

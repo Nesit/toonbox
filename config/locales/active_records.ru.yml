@@ -117,6 +117,7 @@ ru:
         logo: Логотип
       job_position:
         title: Название
+        attachment: Тестовое задание
         open: Вакансия открыта
         requests: Запросы на вакансию
         short_description: Краткое описание
