@@ -943,8 +943,9 @@ h1 {
     float : left;
     margin-right : 20px;
     width : 230px;
+    color:#fff
 }
-
+#footer .contact-phone a { color:#fff  }
 .footer-logo { 
     color: #FFFFFF;
     line-height: 1.8;
