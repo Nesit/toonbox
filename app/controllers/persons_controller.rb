@@ -8,6 +8,7 @@ class PersonsController < ApplicationController
 
   def show
     @staff = Staff.find_by_slug(params[:id])
+    @seo_tags = {title: @staff.title}
     render :index
   end
 end
