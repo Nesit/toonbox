@@ -18,7 +18,7 @@ class JobsController < ApplicationController
     @job_position_request = @job.requests.new(params[:job_position_request])
     if @job_position_request.save
       flash[:notice] = "job position was saved"
-      redirect_to root_path
+      redirect_to job_path(@job)
     else
       render :show
     end

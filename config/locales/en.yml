@@ -21,8 +21,11 @@ en:
   attach_file: Attach file
   tell_about_your_self: Tell about your self
   write_us: Write us
+  watch_video: Watch
+  watch_images: Gallery
   latest_news: Latest news
   other_news: Other news
+  made_balticit: Made by Baltic IT
   episode:
     zero: No episodes
     one: episode

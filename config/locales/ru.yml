@@ -3,7 +3,7 @@ ru:
   portfolio: Портфолио
   about_studio: О студии
   news: Новости
-  persons: Персоналии
+  persons: Фотографии
   partners: Партнёры
   contacts: Контакты
   feedbacks: Отзывы
@@ -12,7 +12,7 @@ ru:
   new_movie: Новый сериал
   portfolio: Портфолио
   about_studio: О Студии
-  staffs: Администрация
+  staffs: Фотографии
   info: Информация
   contacts: Контакты
   jobs: Вакансии
@@ -24,6 +24,9 @@ ru:
   write_us: Написать нам
   latest_news: Последние новости
   other_news: Остальные новости
+  watch_video: Смотреть видео
+  watch_images: Смотреть картинки
+  made_balticit: Создано в Балтик АйТи
   episode:
     zero: Еще пока нет серий
     one: серия

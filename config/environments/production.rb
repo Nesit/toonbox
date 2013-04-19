@@ -13,7 +13,7 @@ Toonbox::Application.configure do
   # ExceptionNotifier
   config.middleware.use ExceptionNotifier, :email_prefix => "[Notify toonbox.ru] ",
                                            :sender_address => %{"notify"},
-                                           :exception_recipients => %w{ kremenev@balticit.ru }
+                                           :exception_recipients => %w{ novoselov@balticit.ru }
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true

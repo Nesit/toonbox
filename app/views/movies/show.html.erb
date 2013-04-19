@@ -35,12 +35,14 @@
       <div class="series-thumb">
 	<div class="icon-mask radius">
 	  <% if episode.video_url.present? %>
-	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">Смотреть<br />видео</a>
+	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
+        <%= t(:watch_video) %>
+      </a>
 	  <% elsif episode.images.present? %>
 	    <% first_image = episode.images.defaults.first || episode.images.first %>
 	    <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" 
                       href="<%= first_image.image.url(:lightbox) %>">
-	      Смотреть<br />картинки
+	      <%= t(:watch_images) %>
 	    </a>
 	  <% else %>
 	    <span>nothing</span>
