@@ -17,3 +17,4 @@
 /.gems
 /config/database.yml
 /public/system
+/nbproject
