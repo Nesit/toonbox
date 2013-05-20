@@ -40,7 +40,9 @@ ActiveAdmin.register MovieEpisode do
     end
     column :title
     column :movie do |resource|
-      link_to resource.movie.title, edit_admin_movie_path(resource.movie)
+      if resource.movie.present?
+        link_to resource.movie.title, edit_admin_movie_path(resource.movie)
+      end
     end
     column :video_url do |resource|
       link_to(resource.video_url, resource.video_url, target: '_blank') if resource.video_url?
