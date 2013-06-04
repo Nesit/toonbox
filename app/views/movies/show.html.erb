@@ -57,8 +57,8 @@
 
               <div class="preview">
                 <% if episode.video_code.present? and russia? %>
-                  <a href="#inline_video_<%= episode.id %>" rel="prettyPhoto[inline]">
-                    <%= t(:watch_video) %>
+                  <a class="icon-play" href="#inline_video_<%= episode.id %>" rel="prettyPhoto[inline]">
+                    <%= image_tag episode.default_image, style: 'width: 272px;', alt: '' %>
                   </a>
                   <div style="display:none;" id="inline_video_<%= episode.id %>">
                     <div class="video_by_code">
