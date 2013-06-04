@@ -9,77 +9,92 @@
 </div>
 
 <div id="center">
-<div class="wrapper">
-<div class="content-block radius-10">
-<div class="series-list">
+  <div class="wrapper">
+    <div class="content-block radius-10">
+      <div class="series-list">
 
-  <% @movie.episodes.order('position ASC').each_with_index do |episode, index| %>
-    <div class="series-item radius">
-      <div class="social-bookmark top-radius">
-	<% if episode.video_url.present? %>
-	  <% url = "#{full_url}#prettyPhoto/#{index}/" %>
-	<% else %>
-	  <% url = "#{full_url}#prettyPhoto[gallery#{index}]/0/" %>
-	<% end %>
-	
-	<% title = episode.title %>
-	<% description = episode.description %>
-	<% image = URI.join(host_path, episode.default_image(:original, false)) rescue '' %>
-	<a onclick="window.Share.facebook('<%= url %>','<%= title %>','<%= image %>','<%= description %>')">
-	  <span class="fb-mark"></span>
-	</a>
-	<a onclick="window.Share.vkontakte('<%= url %>','<%= title %>','<%= image %>','<%= description %>')">
-	  <span class="vk-mark"></span>
-	</a>
-      </div>
-      <div class="series-thumb">
-	<div class="icon-mask radius">
-	  <% if episode.video_url.present? %>
-	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
-        <%= t(:watch_video) %>
-      </a>
-	  <% elsif episode.images.present? %>
-	    <% first_image = episode.images.defaults.first || episode.images.first %>
-	    <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" 
-                      href="<%= first_image.image.url(:lightbox) %>">
-	      <%= t(:watch_images) %>
-	    </a>
-	  <% else %>
-	    <span>nothing</span>
-	  <% end %>
-	</div>
+        <% @movie.episodes.order('position ASC').each_with_index do |episode, index| %>
+          <div class="series-item radius">
+            <div class="social-bookmark top-radius">
+              <% if episode.video_code.present? %>
+                <% url = "#{full_url}#prettyPhoto[inline]/#{index}/" %>
+              <% elsif episode.video_url.present? %>
+                <% url = "#{full_url}#prettyPhoto/#{index}/" %>
+              <% else %>
+                <% url = "#{full_url}#prettyPhoto[gallery#{index}]/0/" %>
+              <% end %>
 
-	<div class="preview">
-	  <% if episode.video_url.present? %>
-	    <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
-	      <%= image_tag episode.default_image, style: 'width: 272px;', alt: '' %>
-	    </a>
-	  <% elsif episode.images.present? %>
-	    <% second_image = episode.images.not(first_image).first %>
-	    <% if second_image %>
-	      <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= second_image.image.url(:lightbox) %>">
-	    <% end %>
+              <% title = episode.title %>
+              <% description = episode.description %>
+              <% image = URI.join(host_path, episode.default_image(:original, false)) rescue '' %>
+              <a onclick="window.Share.facebook('<%= url %>', '<%= title %>', '<%= image %>', '<%= description %>')">
+                <span class="fb-mark"></span>
+              </a>
+              <a onclick="window.Share.vkontakte('<%= url %>', '<%= title %>', '<%= image %>', '<%= description %>')">
+                <span class="vk-mark"></span>
+              </a>
+            </div>
+            <div class="series-thumb">
+              <div class="icon-mask radius">
+                <% if episode.video_code.present? %>
+                  <a class="icon-play" href="#inline_video_<%= episode.id %>" rel="prettyPhoto[inline]">
+                     <%= t(:watch_video) %>
+                  </a>
+                <% elsif episode.video_url.present? %>
+                  <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
+                    <%= t(:watch_video) %>
+                  </a>
+                <% elsif episode.images.present? %>
+                  <% first_image = episode.images.defaults.first || episode.images.first %>
+                  <a alt="" rel="prettyPhoto[gallery<%= index %>]" class="icon-image" 
+                     href="<%= first_image.image.url(:lightbox) %>">
+                       <%= t(:watch_images) %>
+                  </a>
+                <% else %>
+                  <span>nothing</span>
+                <% end %>
+              </div>
 
-	      <%= image_tag episode.default_image, style: "width: 272px;", alt: '' %>
-	    </a>
-	    <% episode.images.not([first_image, second_image].compact).each_with_index do |image, ext_index| %>
-	      <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= ext_index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
-	    <% end %>
-	  <% else %>
-	    <span>nothing</span>
-	  <% end %>
-	</div>
-	<div class="clear"></div>
-      </div>
-      <div class="series-info">
-	<div class="series-title"><%= episode.title %></div>
+              <div class="preview">
+                <% if episode.video_code.present? %>
+                  <a href="#inline_video_<%= episode.id %>" rel="prettyPhoto[inline]">
+                    <%= t(:watch_video) %>
+                  </a>
+                  <div style="display:none;" id="inline_video_<%= episode.id %>">
+                    <div class="video_by_code">
+                      <%= raw episode.video_code %>
+                    </div>
+                  </div>
+                <% elsif episode.video_url.present? %>
+                  <a class="icon-play" href="<%= episode.video_url %>" rel="prettyPhoto">
+                    <%= image_tag episode.default_image, style: 'width: 272px;', alt: '' %>
+                  </a>
+                <% elsif episode.images.present? %>
+                  <% second_image = episode.images.not(first_image).first %>
+                  <% if second_image %>
+                    <a rel="prettyPhoto[gallery<%= index %>]" class="icon-image" href="<%= second_image.image.url(:lightbox) %>">
+                    <% end %>
+
+                    <%= image_tag episode.default_image, style: "width: 272px;", alt: '' %>
+                  </a>
+                  <% episode.images.not([first_image, second_image].compact).each_with_index do |image, ext_index| %>
+                    <a rel="prettyPhoto[gallery<%= index %>]" data-number="<%= ext_index %>" class="icon-image" href="<%= image.image.url(:lightbox) %>"></a>
+                  <% end %>
+                <% else %>
+                  <span>nothing</span>
+                <% end %>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="series-info">
+              <div class="series-title"><%= episode.title %></div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="clear"></div>
+
       </div>
     </div>
-  <% end %>
-
-  <div class="clear"></div>
-
-</div>
-</div>
-</div>
+  </div>
 </div>

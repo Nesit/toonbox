@@ -128,7 +128,7 @@ $ ->
 
 
   $(".partner-item").on 'mouseenter', ->
-    data_resume = $(@).find("img").attr("data-resume")  
+    data_resume = $(@).find("img").attr("data-resume")
     div_append = """
                  <div class='partner-info-wrapper radius-10'>
                    <span class='arrow'></span>
@@ -144,5 +144,10 @@ $ ->
     animation_speed: "normal"
     theme: "facebook"
     slideshow: 10000
+    default_width: 640
+    default_height: 360
     hideflash: true
-
+    changepicturecallback: (holder) ->
+      #hack: remove visibility style
+      holder.find('.video_by_code embed').attr('style', '')
+      holder.find('.video_by_code object').attr('style', '')
