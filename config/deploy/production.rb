@@ -1,8 +1,12 @@
 set :stage, 'production'
 
-role :web, "toonboox.bender.srv.balticit.ru"
-role :app, "toonboox.bender.srv.balticit.ru"
-role :db,  "toonboox.bender.srv.balticit.ru", :primary => true
+#role :web, "toonboox.bender.srv.balticit.ru"
+#role :app, "toonboox.bender.srv.balticit.ru"
+#role :db,  "toonboox.bender.srv.balticit.ru", :primary => true
+
+role :web, "toonbox.ru"
+role :app, "toonbox.ru"
+role :db,  "toonbox.ru", :primary => true
 
 set :user, "toonbox_production"
 set :deploy_to, "/var/www/toonbox_production"
