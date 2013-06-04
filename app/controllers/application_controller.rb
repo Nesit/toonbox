@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   
   def russia?
     return true if Rails.env.development?
-    GEO_IP.country(request.ip) == 'Russian Federation'
+    GEO_IP.country(request.ip).country_name == 'Russian Federation'
   end
 
   protected
