@@ -16,7 +16,7 @@
         <% @movie.episodes.order('position ASC').each_with_index do |episode, index| %>
           <div class="series-item radius">
             <div class="social-bookmark top-radius">
-              <% if episode.video_code.present? %>
+              <% if episode.video_code.present? and russia? %>
                 <% url = "#{full_url}#prettyPhoto[inline]/#{index}/" %>
               <% elsif episode.video_url.present? %>
                 <% url = "#{full_url}#prettyPhoto/#{index}/" %>
@@ -36,7 +36,7 @@
             </div>
             <div class="series-thumb">
               <div class="icon-mask radius">
-                <% if episode.video_code.present? %>
+                <% if episode.video_code.present? and russia? %>
                   <a class="icon-play" href="#inline_video_<%= episode.id %>" rel="prettyPhoto[inline]">
                      <%= t(:watch_video) %>
                   </a>
@@ -56,7 +56,7 @@
               </div>
 
               <div class="preview">
-                <% if episode.video_code.present? %>
+                <% if episode.video_code.present? and russia? %>
                   <a href="#inline_video_<%= episode.id %>" rel="prettyPhoto[inline]">
                     <%= t(:watch_video) %>
                   </a>

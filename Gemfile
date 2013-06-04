@@ -21,6 +21,7 @@ gem 'client_side_validations'
 gem 'friendly_id'
 gem 'acts_as_list'
 gem 'activeadmin-sortable', github: 'ezotrank/activeadmin-sortable', branch: 'toonbox'
+gem 'geoip'
 
 
 group :production do

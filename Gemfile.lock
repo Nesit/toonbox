@@ -120,6 +120,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     friendly_id (4.0.9)
+    geoip (1.2.1)
     globalize3 (0.3.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -269,6 +270,7 @@ DEPENDENCIES
   exception_notification
   ffaker
   friendly_id
+  geoip
   globalize3
   jquery-rails
   letter_opener
