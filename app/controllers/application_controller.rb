@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_locale
+  before_filter :set_user_agent
   before_filter :default_url_options
   
   helper_method :russia?
@@ -20,6 +21,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+  
+  def set_user_agent
+    @user_agent = AgentOrange::UserAgent.new(request.env["HTTP_USER_AGENT"])
+  end
 
   def default_url_options
     ActionMailer::Base.default_url_options = {:host => request.host_with_port}
