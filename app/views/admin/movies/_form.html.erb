@@ -12,6 +12,7 @@
     <div id="lang-ru">
       <%= f.inputs 'Русский текст' do %>
         <%= f.input :title %>
+        <%= f.input :official_url %>
         <%= f.input :description, as: :html_editor %>
         <%= f.input :new_movie, as: :select, collection: [['Да', true],['Нет', false]] %>
         <%= f.input :awarded,   as: :select, collection: [['Да', true],['Нет', false]] %>

@@ -8,7 +8,8 @@ class Movie < ActiveRecord::Base
   has_many :images, as: :relation, class_name: 'MovieImage', dependent: :destroy
   has_many :episodes, class_name: 'MovieEpisode'
 
-  attr_accessible :title, :description, :new_movie, :awarded, :awarded_text, :position
+  attr_accessible :title, :description, :new_movie, :awarded, :awarded_text, :position,
+                  :official_url
 
   validates :title, :description, presence: true
 

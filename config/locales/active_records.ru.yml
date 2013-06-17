@@ -104,6 +104,7 @@ ru:
         new_movie: Новый фильм
         awarded: С наградами
         awarded_text: Описание награды
+        official_url: Официальный сайт
       movie_image:
         image: Изображение
       movie_episode:

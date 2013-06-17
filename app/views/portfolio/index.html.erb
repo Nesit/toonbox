@@ -39,6 +39,12 @@
 	    <div class="series-info">
 	      <div class="series-title"><%= movie.title %></div>
 	    </div>
+      <div class="offical_url">
+          <% if movie.official_url.present? %>
+            <% url = URI(movie.official_url).scheme ? movie.official_url : "http://#{movie.official_url}" %>
+            <%= link_to URI(url).host, url %>
+          <% end %>
+      </div>
 	  </div>
 	<% end %>
 

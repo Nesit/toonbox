@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617142151) do
+ActiveRecord::Schema.define(:version => 20130617151400) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -174,11 +174,12 @@ ActiveRecord::Schema.define(:version => 20130617142151) do
   add_index "movie_translations", ["movie_id"], :name => "index_movie_translations_on_movie_id"
 
   create_table "movies", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.boolean  "new_movie"
     t.boolean  "awarded"
     t.integer  "position"
+    t.string   "official_url"
   end
 
   create_table "news", :force => true do |t|
