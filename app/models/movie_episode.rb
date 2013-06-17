@@ -7,7 +7,8 @@ class MovieEpisode < ActiveRecord::Base
   belongs_to :movie
   has_many :images, as: :relation, class_name: 'MovieImage', dependent: :destroy
 
-  attr_accessible :title, :description, :video_url, :video_code, :movie_id, :position
+  attr_accessible :title, :description, :video_url, :video_code, :movie_id,
+                  :position, :official_url
 
   validates :title, :description, presence: true
 

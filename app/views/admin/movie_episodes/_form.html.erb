@@ -11,7 +11,8 @@
 
     <div id="lang-ru">
       <%= f.inputs 'Русский текст' do %>
-        <%= f.input :title %> 
+        <%= f.input :title %>
+        <%= f.input :official_url %>
         <%= f.input :description, as: :html_editor %>
         <%= f.input :movie, include_blank: false, selected: resource.movie.try(:id) || params[:movie_id] %>
         <%= f.input :video_url, input_html: { rows: 2 } %>

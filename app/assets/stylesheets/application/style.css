@@ -960,3 +960,7 @@ div#map{
     width: 866px; 
     height: 400px
 }
+
+div.offical_url{
+    padding-bottom: 20px;
+}

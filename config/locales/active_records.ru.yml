@@ -111,6 +111,8 @@ ru:
         description: Описание
         video_url: Ссылка на видео
         movie: Фильм
+        official_url: Официальный сайт
+        video_code: Код видео
       feedback:
         title: Название
         text: Текст
