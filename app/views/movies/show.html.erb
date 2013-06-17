@@ -87,13 +87,15 @@
               <div class="clear"></div>
             </div>
             <div class="series-info">
-              <div class="series-title"><%= episode.title %></div>
-            </div>
-            <div class="offical_url">
-                <% if episode.official_url.present? %>
-                  <% url = URI(episode.official_url).scheme ? episode.official_url : "http://#{episode.official_url}" %>
-                  <%= link_to URI(url).host, url %>
-                <% end %>
+              <div class="series-title">
+                <%= episode.title %>
+                <div class="offical_url">
+                    <% if episode.official_url.present? %>
+                      <% url = URI(episode.official_url).scheme ? episode.official_url : "http://#{episode.official_url}" %>
+                      <%= link_to URI(url).host, url %>
+                    <% end %>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>
