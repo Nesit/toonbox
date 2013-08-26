@@ -1,8 +1,8 @@
 set :stage, 'staging'
 
-role :web, "toonboox.balticit.ru"
-role :app, "toonboox.balticit.ru"
-role :db,  "toonboox.balticit.ru", :primary => true
+role :web, "toonbox.balticit.ru"
+role :app, "toonbox.balticit.ru"
+role :db,  "toonbox.balticit.ru", :primary => true
 
 set :user, "toonbox_staging"
 set :deploy_to, "/var/www/toonbox_staging"
