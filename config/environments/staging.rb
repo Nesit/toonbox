@@ -11,7 +11,7 @@ Toonbox::Application.configure do
   config.active_support.deprecation = :notify
 
   # ExceptionNotifier
-  config.middleware.use ExceptionNotifier, :email_prefix => "[Notify stage.toonboox.bender.srv.balticit.ru] ",
+  config.middleware.use ExceptionNotifier, :email_prefix => "[Notify toonbox.balticit.ru] ",
                                            :sender_address => %{"notify"},
                                            :exception_recipients => %w{ kremenev@balticit.ru }
   config.action_mailer.delivery_method = :sendmail

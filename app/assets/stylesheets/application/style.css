@@ -965,3 +965,14 @@ div.offical_url{
     text-transform: none;
     font: 10px Calibri,Arial,sans-serif;
 }
+
+.widget-frame{
+    float: left;
+    width: 354px;
+    height: 300px;
+}
+
+.widget-text{
+    float: left;
+    width: 520px;
+}
