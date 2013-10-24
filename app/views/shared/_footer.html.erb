@@ -6,14 +6,15 @@
         105120, г. Москва, Центр дизайна ArtPlay,<br />
         Нижняя Сыромятническая, 10, корп. 7, оф. 1
       <% else %>
-        LLC &laquo;Tunboks&raquo;<br />
-        105120, Moscow, Design Centre ArtPlay, <br />
-        Syromiatnicheskaya, 10, Bldg. 7, of. 1
+        Toonboxs &laquo;LLC&raquo;<br />
+        105120, Moscow, ArtPlay Design, <br />
+        Centre <br />
+        Office 1, build. 7, 10 Nizh. <br />
+        Syromiatnicheskaya ul.
       <% end %>
     </div>
 
     <div class="contact-phone">
-      <%= link_to "+7 495 916 7562", "callto:+74959167562" %><br />
       <%= link_to "+7 495 782 2723", "callto:+74957822723" %><br />
       <%= link_to "producer@toonbox.ru", "mailto:producer@toonbox.ru" %>
     </div>
@@ -21,7 +22,7 @@
       <a href="http://balticit.ru">
         <img src="/assets/footer-logo.png" alt="" />
       </a>
-      <%= t(:made_balticit) %>
+      <%= raw(t(:made_balticit)) %>
     </div>
     <div class="clear"></div>
   </div>
