@@ -108,8 +108,9 @@ $ ->
     false
 
   # Change user locale
-  $('div.lang a.change_language').bind 'click', ->
-    $.cookie('locale', $(@).data('language'))
+  $('div.lang a.change_language').bind 'click', (event) ->
+    event.preventDefault()
+    $.cookie('locale', $(@).data('language'), {path: '/'})
     window.location.reload()
 
 
