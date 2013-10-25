@@ -1,4 +1,5 @@
 ru:
+  about: О студии
   test_job: Тестовое задание
   portfolio: Портфолио
   about_studio: О студии
@@ -26,7 +27,7 @@ ru:
   other_news: Остальные новости
   watch_video: Смотреть видео
   watch_images: Смотреть картинки
-  made_balticit: "Создано в <p style=\"margin-left: 690px;\"> Балтик АйТи </p>"
+  made_balticit: "<span style=\"margin-bottom: 0px;\">Создано в</span> <p style=\"margin-left: 690px;\"> Балтик АйТи </p>"
   episode:
     zero: Еще пока нет серий
     one: серия

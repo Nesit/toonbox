@@ -26,6 +26,7 @@ Toonbox::Application.routes.draw do
     resources :prizes, only: :index
     resources :feedbacks, only: :index
     resource :contacts, only: :show
+    resource :about
 
     root :to => 'about#index', as: "about_us"
   end
