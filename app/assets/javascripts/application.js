@@ -6,7 +6,6 @@
 //= require noty/jquery.noty
 //= require noty/layouts/top
 //= require noty/themes/default
-
+//= require ckeditor/init
 
 //= require_tree ./application
-
