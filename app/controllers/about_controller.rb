@@ -1,8 +1,7 @@
-class AboutController < ActionController::Base
-  layout 'application'
-
+class AboutController < ApplicationController
   def index
     @description = VirtualPage.find_by_name("about").seo_tags
-    @staff = Staff.order('position ASC').first
+    @head_section = 'about_studio'
+    @submenu_section = 'about '
   end
 end

@@ -1,4 +1,5 @@
 en:
+  about: About
   portfolio: Portfolio
   about_studio: About as
   news: News
@@ -25,7 +26,7 @@ en:
   watch_images: Gallery
   latest_news: Latest news
   other_news: Other news
-  made_balticit: Made by Baltic IT
+  made_balticit: "<span style=\"padding-bottom:0px; \">Made by</span> <p style=\"margin-left: 690px; padding-top: -10px;\"> Baltic IT </p>"
   episode:
     zero: No episodes
     one: episode
