@@ -24,6 +24,7 @@ gem 'activeadmin-sortable', github: 'ezotrank/activeadmin-sortable', branch: 'to
 gem 'geoip'
 gem 'agent_orange'
 gem 'pg'
+gem "ckeditor"
 
 group :production do
   gem 'unicorn'

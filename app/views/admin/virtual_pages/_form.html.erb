@@ -14,7 +14,8 @@
         <%= f.input :name, input_html: {readonly: true} %>
         <%= f.input :html_title, input_html: { rows: 1 } %>
         <%= f.input :html_keywords, input_html: { rows: 1 } %>
-        <%= f.input :html_description, input_html: { rows: 1 } %>
+        <strong><%= f.label :html_description %></strong><br/><br />
+        <%= f.cktext_area :html_description %>
 	<%= f.input :image, :as => :file, :hint => (f.object.image.present? ? f.template.image_tag(f.object.image.url) : '') %>
       <% end %>
     </div>
@@ -25,7 +26,8 @@
 	<%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
 	  <%= lf.input :html_title, input_html: { rows: 1 } %>
           <%= lf.input :html_keywords, input_html: { rows: 1 } %>
-          <%= lf.input :html_description, input_html: { rows: 1 } %>
+          <strong><%= lf.label :description %></strong><br /><br />
+          <%= lf.cktext_area :html_description %>
           <%= lf.input :locale, :as => :hidden %>
 	<% end %>
       </div>
