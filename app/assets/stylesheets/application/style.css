@@ -985,17 +985,3 @@ div.offical_url{
     cursor: default;
     font-size: 2px;
 }
-
-.sd a:hover{
-    padding: 12px 20px !important;
-    border: 1px solid #e1f1fc !important;
-    color: #e1f1fc !important;
-    text-shadow: 0px 1px #e1f1fc !important;
-    font-family: Verdana,Geneva,sans-serif;
-    cursor: default;
-    font-size: 2px;
-}
-
-#cool{
-    color: #e1f1fc;
-}
