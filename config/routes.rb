@@ -1,5 +1,6 @@
 Toonbox::Application.routes.draw do
 
+  mount Ckeditor::Engine => "/ckeditor"
 
   # Admin panel
   namespace :admin do
@@ -19,7 +20,7 @@ Toonbox::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  mount Ckeditor::Engine => "/ckeditor"
+
 
   scope '/about_us' do
     resources :jobs, only: [:index, :show] do
