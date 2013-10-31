@@ -1,9 +1,10 @@
 ru:
+  about: О студии
   test_job: Тестовое задание
   portfolio: Портфолио
   about_studio: О студии
   news: Новости
-  persons: Фотографии
+  persons: Фотографии студии
   partners: Партнёры
   contacts: Контакты
   feedbacks: Отзывы
@@ -12,7 +13,7 @@ ru:
   new_movie: Новый сериал
   portfolio: Портфолио
   about_studio: О Студии
-  staffs: Фотографии
+  staffs: Фотографии студии
   info: Информация
   contacts: Контакты
   jobs: Вакансии
@@ -26,7 +27,7 @@ ru:
   other_news: Остальные новости
   watch_video: Смотреть видео
   watch_images: Смотреть картинки
-  made_balticit: Создано в Балтик АйТи
+  made_balticit: "<span style=\"margin-bottom: 0px;\">Создано в</span> <p style=\"margin-left: 690px;\"> Балтик АйТи </p>"
   episode:
     zero: Еще пока нет серий
     one: серия

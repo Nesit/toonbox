@@ -5,8 +5,6 @@
 <div id="breadcrumbs">
   <div class="wrapper">
     <%= link_to t(:about_studio), about_us_path %>
-    <span class="drop"></span>
-    <%= link_to t(:prizes), partners_path %>
   </div>
 </div>
 
@@ -14,17 +12,10 @@
   <div class="wrapper">
     <div class="content-block radius-10">
       <div class="partner-list">
-
-	<% @prizes.each do |prize| %>
-	  <div class="partner-item radius-10">
-	    <a href="">
-	      <%= image_tag prize.logo, "data-title" => prize.title, "data-resume" => prize.description %>
-	    </a>
-	  </div>
-	<% end %>
-
-	<div class="clear"></div>
-      </div>
+        <%= raw(@description[:description]) %>
+       </div>
     </div>
+
+    <div class="clear"></div>
   </div>
 </div>

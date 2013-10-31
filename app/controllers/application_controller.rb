@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = cookies['locale'] ? cookies['locale'].to_sym : I18n.default_locale
+    p "locale: #{I18n.locale}"
   end
 
   def set_admin_locale
