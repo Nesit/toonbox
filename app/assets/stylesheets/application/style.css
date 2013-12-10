@@ -967,8 +967,10 @@ div.offical_url{
 }
 
 .widget-frame{
-    text-align: center;
-    padding-bottom: 35px;
+    position: fixed; 
+    margin-left: 890px; 
+    margin-top: -4px; 
+    z-index: 499;
 }
 
 .widget-text{
