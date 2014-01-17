@@ -36,8 +36,10 @@ class MovieEpisode < ActiveRecord::Base
     return if video_id.blank?
     require 'open-uri'
     url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
+    print "#{url} ... "
     info = JSON.parse(open(url).read)
     self.youtube_view_count = info['entry']['yt$statistics']['viewCount'].to_i
     save!
+    puts "[ok]"
   end
 end
