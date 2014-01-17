@@ -983,13 +983,8 @@ div.offical_url{
     color: black;
 }
 
-.youtube-views .title{
-    font-variant: small-caps;
-    font-weight: bold;
-}
-
 .youtube-views .count{
-    font-size: 300%;
+    font-size: 65px;
     font-family: sans-serif;
     font-weight: bold;
 }
