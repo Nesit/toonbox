@@ -29,4 +29,15 @@ class MovieEpisode < ActiveRecord::Base
       nil
     end
   end
+
+  def update_youtube_view_count!
+    return if video_url.blank? || video_url !~ /youtube/
+    video_id = video_url.match(/v=([^&]+)/)[1]
+    return if video_id.blank?
+    require 'open-uri'
+    url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
+    info = JSON.parse(open(url).read)
+    self.youtube_view_count = info['entry']['yt$statistics']['viewCount'].to_i
+    save!
+  end
 end

@@ -25,6 +25,7 @@ gem 'geoip'
 gem 'agent_orange'
 gem 'pg'
 gem "ckeditor"
+gem 'whenever'
 
 group :production do
   gem 'unicorn'

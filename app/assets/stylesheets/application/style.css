@@ -977,3 +977,16 @@ div.offical_url{
     float: left;
     width: 520px;
 }
+
+.youtube-views{
+    text-align: center;
+    color: black;
+}
+
+.youtube-views .title{
+    font-variant: small-caps;
+}
+
+.youtube-views .count{
+    font-size: 300%;
+}
