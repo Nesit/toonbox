@@ -19,10 +19,9 @@
       <%= link_to "producer@toonbox.ru", "mailto:producer@toonbox.ru" %>
     </div>
     <div class="footer-logo">
-      <a href="http://balticit.ru">
-        <img src="/assets/footer-logo.png" alt="" />
-      </a>
-      <%= raw(t(:made_balticit)) %>
+      <%= link_to "http://balticit.ru" do %>
+        <%= image_tag 'footer-logo.png', alt: 'BalticIT' %>
+      <% end %>
     </div>
     <div class="clear"></div>
   </div>
