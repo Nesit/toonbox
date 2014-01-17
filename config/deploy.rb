@@ -18,6 +18,11 @@ set :asset_env, "RAILS_GROUPS=assets"
 set :rvm_type, :system
 require "rvm/capistrano"
 
+set :whenever_command, "bundle exec whenever"
+set :whenever_environment, defer { stage }
+set :whenever_identifier, defer { "#{application}_#{stage}" }
+require "whenever/capistrano"
+
 before 'deploy:assets:precompile', 'deploy:symlink_shared'
 after 'deploy:restart','deploy:cleanup'
 
