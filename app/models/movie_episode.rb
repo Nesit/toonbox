@@ -36,7 +36,7 @@ class MovieEpisode < ActiveRecord::Base
     return if video_id.blank?
     require 'open-uri'
     url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
-    print "[#{id}] #{url} ... "
+    print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
     info = JSON.parse(open(url).read)
     self.youtube_view_count = info['entry']['yt$statistics']['viewCount'].to_i
     save!
@@ -49,7 +49,7 @@ class MovieEpisode < ActiveRecord::Base
     return if video_id.blank?
     require 'open-uri'
     url = "http://vimeo.com/api/v2/video/#{video_id}.json"
-    print "[#{id}] #{url} ... "
+    print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
     info = JSON.parse(open(url).read)
     self.vimeo_view_count = info[0]['stats_number_of_plays'].to_i
     save!

@@ -1,0 +1,19 @@
+<% if @vimeo_view_count.to_i > 0 && @youtube_view_count.to_i > 0 %>
+  <% vcount   = @vimeo_view_count.to_i + @youtube_view_count.to_i %>
+  <% vservice = "YOUTUBE И VIMEO" %>
+<% elsif @youtube_view_count.to_i > 0 %>
+  <% vcount   = @youtube_view_count.to_i %>
+  <% vservice = "YOUTUBE" %>
+<% elsif @vimeo_view_count.to_i > 0 %>
+  <% vcount   = @vimeo_view_count.to_i %>
+  <% vservice = "VIMEO" %>
+<% end %>
+
+<% if vcount.present? && vservice.present? %>
+  <div class="video-views <%= klass if defined?(klass) %>">
+    <div class="title">ОБЩЕЕ КОЛИЧЕСТВО ПРОСМОТРОВ НА <%= vservice %></div>
+    <div class="count">
+      <%= number_with_delimiter vcount, delimiter: " " %>
+    </div>
+  </div>
+<% end %>

@@ -1,8 +1,0 @@
-<% if @youtube_view_count && @youtube_view_count > 0 %>
-  <div class="youtube-views <%= klass if defined?(klass) %>">
-    <div class="title">ОБЩЕЕ КОЛИЧЕСТВО ПРОСМОТРОВ НА YOUTUBE</div>
-    <div class="count">
-      <%= number_with_delimiter @youtube_view_count, delimiter: " " %>
-    </div>
-  </div>
-<% end %>

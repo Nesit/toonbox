@@ -978,40 +978,21 @@ div.offical_url{
     width: 520px;
 }
 
-.youtube-views{
+.video-views{
     text-align: center;
     color: black;
 }
 
-.youtube-views .count{
+.video-views .count{
     font-size: 65px;
     font-family: sans-serif;
     font-weight: bold;
 }
 
-.youtube-views.small .count{
+.video-views.small .count{
     font-size: 32px;
 }
 
-.youtube-views.small .title{
-    font-size: 12px;
-}
-
-.vimeo-views{
-    text-align: center;
-    color: black;
-}
-
-.vimeo-views .count{
-    font-size: 65px;
-    font-family: sans-serif;
-    font-weight: bold;
-}
-
-.vimeo-views.small .count{
-    font-size: 32px;
-}
-
-.vimeo-views.small .title{
+.video-views.small .title{
     font-size: 12px;
 }

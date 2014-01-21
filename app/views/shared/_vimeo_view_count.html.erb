@@ -1,8 +1,0 @@
-<% if @vimeo_view_count && @vimeo_view_count > 0 %>
-  <div class="vimeo-views <%= klass if defined?(:klass) %>">
-    <div class="title">ОБЩЕЕ КОЛИЧЕСТВО ПРОСМОТРОВ НА VIMEO</div>
-    <div class="count">
-      <%= number_with_delimiter @vimeo_view_count, delimiter: " " %>
-    </div>
-  </div>
-<% end %>
