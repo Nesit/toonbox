@@ -988,3 +988,14 @@ div.offical_url{
     font-family: sans-serif;
     font-weight: bold;
 }
+
+.vimeo-views{
+    text-align: center;
+    color: black;
+}
+
+.vimeo-views .count{
+    font-size: 65px;
+    font-family: sans-serif;
+    font-weight: bold;
+}

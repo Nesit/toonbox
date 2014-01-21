@@ -42,4 +42,17 @@ class MovieEpisode < ActiveRecord::Base
     save!
     puts "[ok]"
   end
+
+  def update_vimeo_view_count!
+    return if video_url.blank? || video_url !~ /vimeo/
+    video_id = video_url.match(/vimeo.com\/([0-9]+)/)[1]
+    return if video_id.blank?
+    require 'open-uri'
+    url = "http://vimeo.com/api/v2/video/#{video_id}.json"
+    print "[#{id}] #{url} ... "
+    info = JSON.parse(open(url).read)
+    self.vimeo_view_count = info[0]['stats_number_of_plays'].to_i
+    save!
+    puts "[ok]"
+  end
 end
