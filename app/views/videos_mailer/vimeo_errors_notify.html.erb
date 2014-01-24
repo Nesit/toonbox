@@ -1,0 +1,17 @@
+<h1>Отчет об ошибках видео с vimeo</h1>
+<div>
+  <% @episodes.each_with_index do |ep, i| %>
+    <div>
+      <span>Категория фильма:</span>
+      <%= link_to ep.movie.title, movie_url(ep.movie) %><br/>
+
+      <span>Фильм:</span>
+      <%= ep.title %><br/>
+      <%= link_to ep.video_url, ep.video_url %><br/>
+
+      <span>Ошибка:</span>
+      <%= @errors[i] %>
+    </div>
+    <hr>
+  <% end %>
+</div>
