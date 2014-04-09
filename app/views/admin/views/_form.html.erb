@@ -1,7 +1,10 @@
 <%= form_tag admin_refresh_view_path, :as => :form, :method => :post do%>
   <% MovieEpisode.all.each do |episode| %>
+    Movie - <%= episode.movie.title %>
     Episode - <%= episode.title %>
     <%= check_box_tag "episodes[]", episode.id%>
+    YouTube <%= episode.youtube_view_count %> ;
+    Vimeo <%= episode.vimeo_view_count %> ;
     </br>
   <% end %>
   <%= submit_tag("Обновить") %>
