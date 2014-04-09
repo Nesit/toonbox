@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121074902) do
+ActiveRecord::Schema.define(:version => 20140409041701) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20140121074902) do
     t.string   "official_url"
     t.integer  "youtube_view_count", :default => 0
     t.integer  "vimeo_view_count"
+    t.string   "add_video_url"
   end
 
   create_table "movie_images", :force => true do |t|
@@ -304,6 +305,9 @@ ActiveRecord::Schema.define(:version => 20140121074902) do
   end
 
   add_index "staffs", ["slug"], :name => "index_staffs_on_slug", :unique => true
+
+  create_table "views", :force => true do |t|
+  end
 
   create_table "virtual_page_translations", :force => true do |t|
     t.integer  "virtual_page_id"

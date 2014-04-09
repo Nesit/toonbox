@@ -9,6 +9,7 @@ Toonbox::Application.routes.draw do
       delete :destroy_image, on: :collection
       put :image_as_default
     end
+
     resources :movie_episodes do
       post :add_image, on: :member
       delete :destroy_image, on: :collection
@@ -20,6 +21,7 @@ Toonbox::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  post 'admin/views/refresh', to: 'views#refresh', as: "admin_refresh_view"
 
 
   scope '/about_us' do

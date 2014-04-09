@@ -16,6 +16,7 @@
         <%= f.input :description, as: :html_editor %>
         <%= f.input :movie, include_blank: false, selected: resource.movie.try(:id) || params[:movie_id] %>
         <%= f.input :video_url, input_html: { rows: 2 } %>
+        <%= f.input :add_video_url, input_html: { rows: 2 } %>
         <%= f.input :video_code, input_html: { rows: 4 } %>
       <% end %>
     </div>

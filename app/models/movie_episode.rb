@@ -8,7 +8,7 @@ class MovieEpisode < ActiveRecord::Base
   has_many :images, as: :relation, class_name: 'MovieImage', dependent: :destroy
 
   attr_accessible :title, :description, :video_url, :video_code, :movie_id,
-                  :position, :official_url
+                  :position, :official_url, :add_video_url
 
   validates :title, :description, presence: true
 
@@ -30,29 +30,52 @@ class MovieEpisode < ActiveRecord::Base
     end
   end
 
+
   def update_youtube_view_count!
-    return if video_url.blank? || video_url !~ /youtube/
-    video_id = video_url.match(/v=([^&]+)/)[1]
-    return if video_id.blank?
-    require 'open-uri'
-    url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
-    print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
-    info = JSON.parse(open(url).read)
-    self.youtube_view_count = info['entry']['yt$statistics']['viewCount'].to_i
+    p "youtueb"
+    urls = add_video_url.split(/, /)
+    urls << video_url
+    p urls
+    sum = 0
+    urls.each do |v_url|
+      p v_url
+      next if v_url.blank? || v_url !~ /youtube/
+      video_id = v_url.match(/v=([^&]+)/)[1]
+      p video_id
+      next if video_id.blank?
+      require 'open-uri'
+      url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
+      print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
+      info = JSON.parse(open(url).read)
+      sum += info['entry']['yt$statistics']['viewCount'].to_i
+      p sum
+    end
+    self.youtube_view_count = sum
     save!
     puts "[ok]"
   end
 
   def update_vimeo_view_count!
-    return if video_url.blank? || video_url !~ /vimeo/
-    video_id = video_url.match(/vimeo.com\/([0-9]+)/)[1]
-    return if video_id.blank?
-    require 'open-uri'
-    url = "http://vimeo.com/api/v2/video/#{video_id}.json"
-    print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
-    info = JSON.parse(open(url).read)
-    self.vimeo_view_count = info[0]['stats_number_of_plays'].to_i
+    p "vimeo"
+    urls = add_video_url.split(/, /)
+    urls << video_url
+    sum = 0
+    p urls
+    urls.each do |v_url|
+      p v_url
+      next if v_url.blank? || v_url !~ /vimeo/
+      video_id = v_url.match(/vimeo.com\/([0-9]+)/)[1]
+      next if video_id.blank?
+      require 'open-uri'
+      url = "http://vimeo.com/api/v2/video/#{video_id}.json"
+      print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
+      info = JSON.parse(open(url).read)
+      sum += info[0]['stats_number_of_plays'].to_i
+      p sum
+    end
+    self.vimeo_view_count = sum
     save!
+    p sum
     puts "[ok]"
   end
 end
