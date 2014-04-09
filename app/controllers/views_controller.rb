@@ -1,7 +1,7 @@
 class ViewsController < ApplicationController  
   def refresh
-    p "alo"
-    p params[:episodes]
+    Rake::Task['movies:update_youtube_view_count'].invoke(args)
+    Rake::Task['movies:update_vimeo_view_count'].invoke(args)
     redirect_to "/admin/views"
   end
 
