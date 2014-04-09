@@ -1,6 +1,9 @@
 class ViewsController < ApplicationController  
   def refresh
-    MovieEpisode.all.each do |ep|
+    p params[:episodes]
+    episodes = params[:episodes]
+    episodes.each do |ep_id|
+      ep = MovieEpisode.find(ep_id)
       ep.update_youtube_view_count!
       ep.update_vimeo_view_count!
     end
