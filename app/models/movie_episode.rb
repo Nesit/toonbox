@@ -8,7 +8,7 @@ class MovieEpisode < ActiveRecord::Base
   has_many :images, as: :relation, class_name: 'MovieImage', dependent: :destroy
 
   attr_accessible :title, :description, :video_url, :video_code, :movie_id,
-                  :position, :official_url
+                  :position, :official_url, :add_video_url
 
   validates :title, :description, presence: true
 
@@ -30,17 +30,23 @@ class MovieEpisode < ActiveRecord::Base
     end
   end
 
+
   def update_youtube_view_count!
-    return if video_url.blank? || video_url !~ /youtube/
-    video_id = video_url.match(/v=([^&]+)/)[1]
-    return if video_id.blank?
-    require 'open-uri'
-    url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
-    print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
-    info = JSON.parse(open(url).read)
-    self.youtube_view_count = info['entry']['yt$statistics']['viewCount'].to_i
-    save!
-    puts "[ok]"
+    urls = video_url.split(/, /)
+    sum = 0
+    urls.each do |v_url|
+      return if v_url.blank? || v_url !~ /youtube/
+      video_id = v_url.match(/v=([^&]+)/)[1]
+      return if video_id.blank?
+      require 'open-uri'
+      url = "https://gdata.youtube.com/feeds/api/videos/#{video_id}?v=2&alt=json"
+      print "[ep: #{id}, movie: #{movie_id}] #{url} ... "
+      info = JSON.parse(open(url).read)
+      sum += info['entry']['yt$statistics']['viewCount'].to_i
+    end
+      self.youtube_view_count = sum
+      save!
+      puts "[ok]"
   end
 
   def update_vimeo_view_count!
